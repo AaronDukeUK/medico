@@ -1,0 +1,26 @@
+<article class="searchPage__product">
+
+    {% for tag in product.tags %}
+        {% if tag contains 'Top Picks' %}
+            {% include 'miscBestsellerIcon' %}
+        {% endif %}
+        {% if tag contains 'New' %}
+            {% include 'miscNewIcon' %}
+        {% endif %}
+    {% endfor %}
+
+    {% if product.available != true %}
+        {% include 'miscSoldOutIcon' %}
+    {% endif %}
+
+
+    <a href="{{ product.url | within: collection }}">
+        <img class="searchPage__image" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}"/>
+        <h3 class="searchPage__title">{{ product.title }}</h3>
+        <p class="searchPage__price">{{ product.price | money }}</p>
+        <p class="searchPage__soldby">
+            <span>Sold by</span>
+            <span class="searchPage__vendor">{{ product.vendor }}</span>
+        </p>
+    </a>
+</article>

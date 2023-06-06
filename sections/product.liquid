@@ -1,0 +1,119 @@
+<section data-section-id="{{ section.id }}" data-section-type="product">
+
+  <div class="container">
+    <section class="productListing">
+
+      {%- assign current_variant = product.selected_or_first_available_variant -%}
+      {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+      <div class="productListing__images">
+        <img data-featured-image class="productListing__heroImage" src="{{ featured_image | img_url: '940x' }}"
+          alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" />
+        {% if product.images.size > 1 %}
+          <div class="productListing__altImages">
+            {% for image in product.images %}
+              {% assign current_image = image.src | img_url: "940x" %}
+              <a class="productListing__imageA {% if forloop.index0 == 0 %}active{% endif %}">
+                <img data-alt-image="{{current_image}}" class="productListing__image" src="{{image.src | img_url: "320x"}}" alt="{{ image.alt | escape }}" />
+              </a>
+            {% endfor%}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="productListing__details">
+        <h2 class="productListing__heading">{{ product.title }}</h2>
+        <p class="productListing__soldBy">
+          Sold by
+          <a href="/pages/vendor/{{ product.metafields.marketcube.brandSlug }}">
+            <span class="productListing__vendor">{{ product.vendor }}</span>
+          </a>
+        </p>
+
+        <p data-price-wrapper class="productListing__price">
+          <span data-product-price>
+            {{ current_variant.price | money }}
+          </span>
+        </p>
+
+        {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
+
+          <div class="productListing__line"></div>
+
+          {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div class="productListing__optionContainer">
+                <p class="productListing__optionName">{{option.name}}:</p>
+                <div class="productListing__options">
+                  {% for value in option.values %}
+                    <div class="productListing__option">
+                      <input class="productListing__variantInput" type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>
+                      <label class="variantInputLabel" for="Option{{ option.position }}-{{ value }}">{{ value }}</label>
+                    </div>
+                  {% endfor %}
+                </div>
+
+              </div>
+            {% endfor %}
+            <div class="productListing__line"></div>
+          {% endunless %}
+
+          <div class="productListing__inputAndCartContainer">
+            <div class="productListing__input">
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false">
+                {% include 'miscInputDownArrow' %}
+              </button>
+              <input id="Quantity" min="1" name="quantity" type="number" value="1" />
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false">
+                {% include 'miscInputUpArrow' %}
+              </button>
+            
+            </div>
+            <button
+              type="submit"
+              name="add"
+              data-submit-button
+              id="addToCart"
+              class="productListing__addToCart"
+              {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                <span data-submit-button-text>
+                  {% if current_variant.available %}
+                    Add to cart 
+                  {% else %}
+                    Sold out 
+                  {% endif %}
+                </span>
+                {% include 'miscCartIcon' %}
+            </button>
+            <!-- include 'wishlist-button-product' with '{{ product.id }}' -->
+          </div>
+
+        {% endform %}
+
+        <div class="productListing__line"></div>
+
+        <h3 class="productListing__detailsHeading">Details</h3>
+        <div class="productListing__description">{{ product.description }}</div>
+
+      </div>
+
+    </section>
+    <div class="productListing__reviews" id="shopify-product-reviews" data-id="{{ product.id }}">
+      {{ product.metafields.spr.reviews }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

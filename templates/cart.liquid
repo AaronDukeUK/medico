@@ -1,0 +1,134 @@
+{% layout 'infoTheme' %}
+
+<div class="container cart-container">
+    <div class="cartOverlay" id="overlay" style="transition: opacity 0.5s linear; opacity: 0"></div>
+    <div class="cart">
+        {% if cart.item_count > 0 %}
+            <div class="cart__header">
+                <h1 class="cart__heading">Your cart</h1>
+                {% if cart.item_count > 0 %}
+                    <a class="cart__return" href="/pages/shop">
+                        {% include 'miscReturnArrow' %}
+                        <p>Continue shopping</p>
+                    </a>
+                {% endif %}
+            </div>
+
+            <form action="/cart" method="post" novalidate>
+                <div class="cart__products">
+                    {% for item in cart.items %}
+                        {% include 'cartItem' %}
+                    {% endfor %}
+                </div>
+
+                <div class="cart__summary">
+                    <div class="summary-openButton">
+                        {% include 'cartSummaryIcon' %}
+                    </div>
+                    <h2 class="cart__summaryHeading">Summary</h2>
+                    <div class="cart__summaryPrice">
+                        <p>Total:</p>
+                        <p>{{ cart.total_price | money }}</p>
+                    </div>
+                    <button class="cart__summaryButton" name="checkout" type="submit">
+                        Proceed to checkout
+                    </button>
+
+                    <div class="cart__summaryPayments">
+                        <p>We accept:</p>
+                        {{ "cartPayments.png" | asset_url | img_tag: "Payment Options" }}
+                    </div>
+                    <div class="cart__summaryDiscounts">
+                        {% include 'cartDiscount' %}
+                        <p>Got a discount code? Add it in the next step</p>
+                    </div>
+                </div>
+
+                <div class="cart__summary cart__summary--mobile" id="summary" style="transition: all 0.5s linear; max-height: 88px">
+                    <div class="summary-openButton" id="button" onclick="showSummary()">
+                        {% include 'cartSummaryIcon' %}
+                    </div>
+                    <h2 class="cart__summaryHeading" id="header" style="transition: all 0.5s linear; max-height: 0px">Summary</h2>
+                    <div class="cart__summaryPrice">
+                        <p>Total:</p>
+                        <p>{{ cart.total_price | money }}</p>
+                    </div>
+                    <button class="cart__summaryButton" name="checkout" type="submit">
+                        Proceed to checkout
+                    </button>
+
+                    <div class="cart__summaryPayments">
+                        <p>We accept:</p>
+                        {{ "cartPayments.png" | asset_url | img_tag: "Payment Options" }}
+                    </div>
+                    <div class="cart__summaryDiscounts">
+                        {% include 'cartDiscount' %}
+                        <p>Got a discount code? Add it in the next step</p>
+                    </div>
+                </div>
+            </form>
+
+        {% else %}
+            <h1 class="cart__heading">Your cart</h1>
+            <div class="cart__empty">
+                {% include 'cartEmpty' %}
+                <p class="cart__emptyText">Your cart is still empty.</p>
+                <a href="/pages/shop">
+                    <button class="cart__emptyButton">Start shopping</button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    function showSummary() {
+        const button = document.getElementById("button");
+        const summary = document.getElementById("summary");
+        const header = document.getElementById("header");
+        const overlay = document.getElementById("overlay");
+        if (summary.style.maxHeight === "88px") {
+            summary.style.maxHeight = "350px";
+            header.style.maxHeight = "150px";
+            header.style.paddingBottom = "30px";
+            overlay.style.opacity = "0.5";
+        } else {
+            summary.style.maxHeight = "88px";
+            header.style.maxHeight = "0px";
+            header.style.paddingBottom = "0px";
+            overlay.style.opacity = "0";
+        }
+    }
+</script>
+
+<script>
+    const allCrosses = Array.from(document.querySelectorAll('.cartProduct__remove'));
+
+    const handleRemoveClick = (e) => {
+        e.preventDefault();
+        const parent = e.currentTarget.parentElement;
+        const product = parent.parentElement;
+        const thisConfirm = product.querySelector("#delete-confirm");
+        thisConfirm.style.display = "block";
+    }
+
+    allCrosses.forEach(node => {
+        node.addEventListener('click', handleRemoveClick)
+    });
+
+    showDelete = (e) => {
+        if (confirm.style.display === "none") {
+            confirm.style.display = "block";
+        } else {
+            confirm.style.display = "none";
+        }
+    };
+
+    hideDelete = (e) => {
+        if (confirm.style.display === "none") {
+            confirm.style.display = "block";
+        } else {
+            confirm.style.display = "none";
+        }
+    };
+</script>

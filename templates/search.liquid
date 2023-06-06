@@ -1,0 +1,34 @@
+{% layout 'shopTheme' %}
+
+{% paginate search.results by 9 %}
+<div class="container">
+    <section class="searchPage">
+    {% if search.performed %}
+    <div class="searchPage__countContainer">
+        <p>{{search.results_count}} results for "{{search.terms}}"</p>
+    </div>
+        {% if search.results_count > 0 %}
+        <div class="searchPage__productsContainer">
+            {% for product in search.results %}
+            {% include 'miscSearchItems' %}
+            {% endfor %}
+        </div>
+        {% else %}
+            <div class="purchases__empty">
+                {% include 'cartEmpty' %}
+                <p class="purchases__emptyText">No results for {{search.terms}}, please try again.</p>
+                <a href="/pages/shop">
+                    <button class="purchases__emptyButton">Start shopping</button>
+                </a>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if paginate.pages > 1 %}
+        <div class="paginate searchPagination" id="paginate">
+            {{ paginate | default_pagination }}
+        </div>
+    {% endif %}
+    </section>
+</div>
+{% endpaginate %}

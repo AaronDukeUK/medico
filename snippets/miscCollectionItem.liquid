@@ -1,0 +1,13 @@
+<article data-aos="fade-up" data-aos-delay="{{ index | times: 50 }}" class="product">
+    <a href="{{ item.url | within: collection }}">
+        <div class="product__image">
+            <img class="product__image" src="{{ item.featured_image.src | img_url: '600x600', crop: 'center' }}" alt="{{ item.featured_image.alt | escape }}" />
+        </div>
+        <h3 class="product__title">{{ item.title }}</h3>
+        <p class="product__price">{{ item.price | money }}</p>
+        <p class="product__soldby">
+            Sold by
+            <span>{{ item.vendor }}</span>
+        </p>
+    </a>
+</article>

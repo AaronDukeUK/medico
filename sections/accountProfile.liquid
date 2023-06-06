@@ -1,0 +1,35 @@
+{% assign collection = collections[customer.metafields.global.username] %}
+
+<div class="container">
+    <div class="accountPage">
+        <div class="accountPage__infoBlock">
+            {% if customer.metafields.global.username %}
+                <div class="accountPage__profilePicture">
+                    {% if collection.image %}
+                        {{ collection.image | img_url: '440x' | img_tag }}
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="accountPage__info">
+                {%- if customer.metafields.global.username -%}
+                    <h1 class="accountPage__heading">{{customer.metafields.global.username}}</h1>
+                {% else %}
+                    <h1 class="accountPage__heading">{{customer.name}}</h1>
+                {%- endif -%}
+                {% if customer.default_address %}
+                    <p class="accountPage__location">
+                        {% include 'miscLocationMarker' %}
+                        {{ customer.default_address.city}},
+                        {{ customer.default_address.country_code}}
+                    </p>
+                {% endif %}
+                <p class="accountPage__description">
+                    {{ collection.description | strip_html }}
+                </p>
+            </div>
+        </div>
+        <p class="accountPage__description accountPage__description--mobile">
+            {{ collection.description | strip_html }}
+        </p>
+    </div>
+</div>

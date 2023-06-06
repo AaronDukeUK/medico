@@ -1,0 +1,37 @@
+{% assign collection = collections[section.settings.collection_handle] %}
+
+{% if collection.products.size > 0 %}
+<div class="container">
+    <section class="shopCollection">
+        <div class="shopCollection__headingContainer">
+            <h2 class="shopCollection__heading" data-aos="fade-up">{{ collection.title }}</h2>
+            <a class="shopCollection__viewall" href="/collections/{{collection.handle}}">View all
+                {% include 'shopCollectionArrow' %}
+            </a>
+        </div>
+        <div class="shopCollection__container">
+            {% for item in collection.products limit:4 %}
+                {% include 'miscCollectionItem', index: forloop.index0 %}
+            {% else %}
+                <p>No Matches. Please Select a Collection.</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endif %}
+
+{% schema %}
+
+{
+"name": "Shop Collection One",
+"settings": [
+  {
+    "type": "text",
+    "id": "collection_handle",
+    "label": "Collection Handle",
+    "default": "community-favourites",
+    "info": "Lowercase title, with - instead of spaces"
+  }
+]
+}
+{% endschema %}

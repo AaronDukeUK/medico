@@ -1,0 +1,40 @@
+@import "../variables"
+
+.shopTopSellers
+    margin-bottom: 81px
+    @media only screen and (max-width: 950px)
+        margin-bottom: 74px
+    @media only screen and (max-width: 650px)
+        margin: 20px 0 45px 0
+    &__heading
+        color: $mediBlue
+        margin-bottom: 35px
+    &__container
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-column-gap: 100px
+        grid-row-gap: 50px
+        @media only screen and (max-width: 950px)
+            grid-column-gap: 44px
+        @media only screen and (max-width: 650px)
+            justify-items: center
+            grid-template-columns: 1fr
+            grid-column-gap: 0px
+            
+    &__seller
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: flex-start
+        @media only screen and (max-width: 650px)
+            max-width: 300px
+        @media only screen and (max-width: 450px)
+            max-width: 200px
+    &__image
+        img
+            width: 100%
+            border-radius: 50%
+            object-fit: cover
+    &__vendor
+        color: $mediDarkGrey
+        margin: 25px 0 12px 0

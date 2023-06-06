@@ -1,0 +1,116 @@
+<section class="collectionHero">
+    <div class="container collectionHero__container">
+        <div class="collectionHero__info">
+            <h1 class="collectionHero__heading">{{collection.title}}</h1>
+            <p class="collectionHero__body">
+                {{collection.description}}
+            </p>
+        </div>
+        <div class="collectionHero__linksGroup">
+            {% assign collection_handle = collection.handle %}
+            {% for block in section.blocks %}
+              {% if block.settings.collection_handle == collection_handle %}
+                <a href="/collections/{{collection.handle}}/{{block.settings.handle_1}}">
+                    <article class="collectionHero__link">
+                        <img class="collectionHero__image" src="{{ block.settings.image_1 | img_url: '276x226', crop: 'center' }}" alt="{{block.settings.title_1}}"/>
+                        <div class="collectionHero__linkTitle">
+                            <span>
+                                {{block.settings.title_1}}
+                            </span>
+                            {% include 'collectionLinkArrow' %}
+                        </div>
+                    </article>
+                </a>
+                <a href="/collections/{{collection.handle}}/{{block.settings.handle_2}}">
+                    <article class="collectionHero__link">
+                        <img class="collectionHero__image" src="{{ block.settings.image_2 | img_url: '276x226', crop: 'center' }}" alt="{{block.settings.title_2}}"/>
+                        <div class="collectionHero__linkTitle">
+                            <span>
+                                {{block.settings.title_2}}
+                            </span>
+                            {% include 'collectionLinkArrow' %}
+                        </div>
+                    </article>
+                </a>
+                <a href="/collections/{{collection.handle}}/{{block.settings.handle_3}}">
+                    <article class="collectionHero__link">
+                        <img class="collectionHero__image" src="{{ block.settings.image_3 | img_url: '276x226', crop: 'center' }}" alt="{{block.settings.title_3}}"/>
+                        <div class="collectionHero__linkTitle">
+                            <span>
+                                {{block.settings.title_3}}
+                            </span>
+                            {% include 'collectionLinkArrow' %}
+                        </div>
+                    </article>
+                </a>
+              {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+
+{
+  "name": "Collection Hero",
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection sub-categories",
+      "settings": [
+        {
+          "id": "collection_handle",
+          "type": "text",
+          "label": "Collection handle"
+        },
+        {
+          "id": "title_1",
+          "type": "text",
+          "label": "Title 1"
+        },
+        {
+          "id": "handle_1",
+          "type": "text",
+          "label": "Handle 1"
+        },
+        {
+          "id": "image_1",
+          "type": "image_picker",
+          "label": "Image 1"
+        },
+        {
+          "id": "title_2",
+          "type": "text",
+          "label": "Title 2"
+        },
+        {
+          "id": "handle_2",
+          "type": "text",
+          "label": "Handle 2"
+        },
+        {
+          "id": "image_2",
+          "type": "image_picker",
+          "label": "Image 2"
+        },
+        {
+          "id": "title_3",
+          "type": "text",
+          "label": "Title 3"
+        },
+        {
+          "id": "handle_3",
+          "type": "text",
+          "label": "Handle 3"
+        },
+        {
+          "id": "image_3",
+          "type": "image_picker",
+          "label": "Image 3"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,60 @@
+<section class="aboutHero">
+  <div class="aboutHero__container container">
+    <div class="aboutHero__content">
+      <h1 class="aboutHero__heading">{{section.settings.about_title}}</h1>
+      <p class="aboutHero__body">
+        {{section.settings.about_text_one}}
+      </p>
+      <p class="aboutHero__body">
+        {{section.settings.about_text_two}}
+      </p>
+      <p class="aboutHero__body">
+        {{section.settings.about_text_three}}
+      </p>
+    </div>
+    <div class="aboutHero__image">
+      {% include 'aboutHeroLines' %}
+      {% if section.settings.about_image != blank %}
+        {{ section.settings.about_image | img_url: '1000x' | img_tag }}
+      {% else %}
+        {{ "About-Hero.png" | asset_url | img_tag: "About Us" }}
+      {% endif %}
+      {% include 'aboutHeroLines' %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+
+{
+"name": "About Section One",
+"settings": [
+  {
+    "type": "text",
+    "id": "about_title",
+    "label": "Title",
+    "default": "Who are we?"
+  }, {
+    "type": "textarea",
+    "id": "about_text_one",
+    "label": "Text One",
+    "default": "Egestas enim purus et a. A, sit id tellus porta ullamcorper tortor donec massa purus. Ut mauris, volutpat pellentesque urna sem integer turpis turpis nisl. Dolor pulvinar massa adipiscing dui enim sed. Sed maecenas morbi non dictum mattis mi commodo. Parturient dolor risus nisl augue amet gravida dui eget."
+  }, {
+    "type": "textarea",
+    "id": "about_text_two",
+    "label": "Text Two",
+    "default": "Pellentesque purus nam quam euismod ut molestie. Tempor in diam enim commodo erat vitae morbi augue. Tellus porttitor viverra a morbi vivamus commodo non at. Erat ornare vitae magna ipsum purus vitae orci auctor quam. Lectus ac vitae egestas habitasse condimentum tincidunt."
+  }, {
+    "type": "textarea",
+    "id": "about_text_three",
+    "label": "Text Three",
+    "default": "Lorem orci, nam et nascetur sed vulputate odio orci. Pulvinar ultrices consequat, vitae ac pretium. In nunc donec arcu tristique pretium id. Eget porttitor lectus neque sed enim scelerisque. Cursus felis lacus, consequat gravida a, quam pretium fames. Feugiat scelerisque amet, fermentum sed eget nunc. Fames in risus donec ut in."
+  }, {
+    "type": "image_picker",
+    "id": "about_image",
+    "label": "Image"
+  }
+]
+}
+
+{% endschema %}

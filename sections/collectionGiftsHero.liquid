@@ -1,0 +1,99 @@
+<section class="collectionHero">
+    <div class="container collectionHero__container">
+        <div class="collectionHero__info">
+            <h1 class="collectionHero__heading">{{collection.title}}</h1>
+            <p class="collectionHero__body">
+                {{collection.description}}
+            </p>
+        </div>
+        <div class="collectionHero__linksGroup">
+            <a href="/collections/{{collection.handle}}/{{section.settings.cat_one_handle}}">
+                <article class="collectionHero__link">
+                    <img class="collectionHero__image" {% if section.settings.cat_one_image != blank %} src="{{ section.settings.cat_one_image | img_url: "600x" }}" {% else %} src="{{ "stationeryNotebooks.png" | asset_url }}" {% endif %} alt="category one"/>
+                    <div class="collectionHero__linkTitle">
+                        <span>
+                            {{section.settings.cat_one_title}}
+                        </span>
+                        {% include 'collectionLinkArrow' %}
+                    </div>
+                </article>
+            </a>
+            <a href="/collections/{{collection.handle}}/{{section.settings.cat_two_handle}}">
+                <article class="collectionHero__link">
+                    <img class="collectionHero__image" {% if section.settings.cat_two_image != blank %} src="{{ section.settings.cat_two_image | img_url: "600x" }}" {% else %} src="{{ "stationeryPens.png" | asset_url }}" {% endif %} alt="category two"/>
+                    <div class="collectionHero__linkTitle">
+                        <span>
+                            {{section.settings.cat_two_title}}
+                        </span>
+                        {% include 'collectionLinkArrow' %}
+                    </div>
+                </article>
+            </a>
+            <a href="/collections/{{collection.handle}}/{{section.settings.cat_three_handle}}">
+                <article class="collectionHero__link">
+                    <img class="collectionHero__image" {% if section.settings.cat_three_image != blank %} src="{{ section.settings.cat_three_image | img_url: "600x" }}" {% else %} src="{{ "stationeryCases.png" | asset_url }}" {% endif %} alt="category three"/>
+                    <div class="collectionHero__linkTitle">
+                        <span>
+                            {{section.settings.cat_three_title}}
+                        </span>
+                        {% include 'collectionLinkArrow' %}
+                    </div>
+                </article>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+
+{
+"name": "Gifts Hero",
+"settings": [
+  {
+    "type": "text",
+    "id": "cat_one_handle",
+    "label": "Category One - Handle",
+    "default": "notebooks"
+  }, {
+    "type": "text",
+    "id": "cat_one_title",
+    "label": "Category One - Title",
+    "default": "Notebooks"
+  }, {
+    "type": "image_picker",
+    "id": "cat_one_image",
+    "label": "Category One - Image"
+  }, {
+    "type": "text",
+    "id": "cat_two_handle",
+    "label": "Category Two - Handle",
+    "default": "pens-and-pencils"
+  }, {
+    "type": "text",
+    "id": "cat_two_title",
+    "label": "Category Two - Title",
+    "default": " Pens & Pencils"
+  }, {
+    "type": "image_picker",
+    "id": "cat_two_image",
+    "label": "Category Two - Image"
+  }, {
+    "type": "text",
+    "id": "cat_three_handle",
+    "label": "Category Three - Handle",
+    "default": "pencil-cases"
+  }, {
+    "type": "text",
+    "id": "cat_three_title",
+    "label": "Category Three - Title",
+    "default": "Pencil Cases"
+   }, {
+    "type": "image_picker",
+    "id": "cat_three_image",
+    "label": "Category Three - Image"
+  }
+
+]
+}
+
+{% endschema %}

@@ -1,0 +1,42 @@
+@import "../variables"
+
+.aboutQuote
+    background: $mediBlue
+    color: $mediWhite
+    padding: 180px 0
+    border: 15px solid $mediPink
+    overflow: hidden
+    @media only screen and (max-width: 600px)
+        padding: 140px 0
+    &__container
+        position: relative
+    &__mark
+        position: absolute
+        font-family: 'Sofia Pro'
+        font-weight: 900
+        font-size: 287px
+        line-height: 287px
+        height: 150px
+        @media only screen and (max-width: 600px)
+            font-size: 214px
+        &:first-child
+            top: -150px
+            left: 20px
+            @media only screen and (max-width: 900px)
+                top: -180px
+        &:last-child
+            bottom: -110px
+            right: 20px
+            @media only screen and (max-width: 900px)
+                bottom: -140px
+            @media only screen and (max-width: 600px)
+                bottom: -110px
+    &__heading
+        max-width: 530px
+        margin: 0 auto
+        @media only screen and (max-width: 900px)
+            max-width: 406px
+        @media only screen and (max-width: 600px)
+            max-width: 100%
+            padding: 0 20px
+

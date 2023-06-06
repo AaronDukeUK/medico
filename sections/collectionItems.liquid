@@ -1,0 +1,47 @@
+<div class="container collectionContainer" id="items">
+    {% include 'collectionFilter' %}
+    <section class="collectionItems" id="items">
+
+        <div class="collectionItems__countContainer">
+            <p class="collectionItems__count" id="count">
+                {{ collection.all_products_count }}
+                items
+            </p>
+            <button class="collectionItems__filterButton" id="filterButton" onclick="openFilterMenu()">
+                Filter
+                {% include 'collectionFilterIcon' %}
+            </button>
+            {% include 'collectionSortOptions' %}
+        </div>
+
+        <div class="collectionItems__productsContainer">
+            {% paginate collection.products by 9 %}
+                {% for product in collection.products %}
+                    {% include 'collectionItemsListing' %}
+                {% endfor %}
+            </div>
+
+        </section>
+    </div>
+    {% if paginate.pages > 1 %}
+        <div class="container">
+            <div class="paginate collectionPagination" id="paginate">
+                {{ paginate | default_pagination }}
+            </div>
+        </div>
+    {% endif %}
+{% endpaginate %}
+
+<script>
+    filterBtn = document.getElementById('filterButton')
+    filterMenu = document.getElementById('collectionFilter')
+
+    openFilterMenu = () => {
+        filterMenu.classList.toggle("collectionFilter--active")
+    };
+    const collectionurl = window.location.href;
+    if (collectionurl.indexOf("?page=") != -1) {
+        location.href = "#";
+        location.href = "#items";
+    }
+</script>

@@ -1,0 +1,55 @@
+@import "../variables"
+@import "../breakpoints"
+
+.about
+    background: $mediBlue
+    border: 12px solid $mediPink
+    color: $mediWhite
+    display: flex
+    align-items: stretch
+    justify-content: flex-start
+    @media only screen and (max-width: 750px)
+        height: auto
+        flex-direction: column
+        align-items: flex-start
+        margin: 0 -15px
+    &__image
+        width: 40%
+        img
+            height: 100%
+            width: 100%
+            object-fit: cover
+        @media only screen and (max-width: 900px)
+            width: 285px
+        @media only screen and (max-width: 750px)
+            height: 370px
+            width: 100%
+        @media only screen and (max-width: 650px)
+            height: 270px
+    &__content
+        padding: 50px
+        flex: 1
+        padding: 40px 28px
+        @include md
+            padding: 40px
+        @include lg
+            padding: 50px
+    &__body
+        // max-width: 389px
+        margin: 10px 0 20px
+        color: $mediWhite
+        // @media only screen and (max-width: 900px)
+        //     overflow: hidden
+        //     display: -webkit-box
+        //     -webkit-line-clamp: 5
+        //     -webkit-box-orient: vertical
+        // @media only screen and (max-width: 750px)
+        //     display: block
+    &__button
+        background: $mediBlue
+        color: $mediWhite
+        transition: all 0.15s ease-in-out
+        &:hover
+            background: $mediWhite
+            color: $mediBlue
+

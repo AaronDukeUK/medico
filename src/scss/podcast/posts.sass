@@ -1,0 +1,73 @@
+@import "../variables"
+@import "../breakpoints"
+
+.podcastPosts
+    padding: 50px 0 93px 0
+    @media only screen and (max-width: 900px)
+        padding: 0 0 86px 0
+    @media only screen and (max-width: 600px)
+        padding: 0 0 51px 0
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+    &__image
+        width: 100%
+        img
+            width: 100%
+        @include md
+            margin-right: 27px
+            width: 250px
+
+    &__post
+        width: 100%
+        display: flex
+        align-items: stretch
+        justify-content: space-between
+        margin-bottom: 55px
+        @media only screen and (max-width: 900px)
+            margin-bottom: 50px
+        @media only screen and (max-width: 750px)
+            flex-direction: column
+            margin-bottom: 67px
+        &:last-child
+            margin-bottom: 0
+
+    &__content
+        display: flex
+        flex-direction: column
+        align-items: stretch
+        justify-content: flex-start
+        flex: 1
+        @media only screen and (max-width: 900px)
+            max-width: 414px
+        @media only screen and (max-width: 750px)
+            max-width: 100%
+            margin-top: 15px
+
+    &__heading
+        color: $mediBlue
+    &__date
+        color: $mediDarkGrey
+        margin: 15px 0
+    &__body
+        color: $mediDarkGrey
+        margin-bottom: 15px
+    &__player
+        iframe
+            margin-bottom: 15px
+        a
+            color: $mediDarkGrey
+            padding: 11px 15px
+            border: 1px solid $mediDarkGrey
+            transition: 0.1s ease-out
+            &:hover
+                background: $mediDarkGrey
+                color: white
+            &:hover:after
+                content: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath d='M12.9062 8.45859H12.8062V8.55859V12.3594C12.8062 12.6057 12.6057 12.8063 12.3594 12.8063H1.64062C1.39431 12.8063 1.19375 12.6057 1.19375 12.3594V8.55859V8.45859H1.09375H0H-0.1V8.55859V12.3594C-0.1 13.3192 0.680756 14.1 1.64062 14.1H12.3594C13.3192 14.1 14.1 13.3192 14.1 12.3594V8.55859V8.45859H14H12.9062Z' fill='white' stroke='white' stroke-width='0.2'/%3E%3Cpath d='M9.69566 6.37465L9.62495 6.30394L9.55424 6.37465L7.64683 8.28206V1.5V1.4H7.54683H6.45308H6.35308V1.5V8.28206L4.44566 6.37465L4.37495 6.30394L4.30424 6.37465L3.53085 7.14804L3.46014 7.21875L3.53085 7.28946L6.92924 10.6879L6.99995 10.7586L7.07066 10.6879L10.4691 7.28946L10.5398 7.21875L10.4691 7.14804L9.69566 6.37465Z' fill='white' stroke='white' stroke-width='0.2'/%3E%3C/g%3E%3C/svg%3E ")
+            &:after
+                content: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath d='M12.9062 8.45859H12.8062V8.55859V12.3594C12.8062 12.6057 12.6057 12.8063 12.3594 12.8063H1.64062C1.39431 12.8063 1.19375 12.6057 1.19375 12.3594V8.55859V8.45859H1.09375H0H-0.1V8.55859V12.3594C-0.1 13.3192 0.680756 14.1 1.64062 14.1H12.3594C13.3192 14.1 14.1 13.3192 14.1 12.3594V8.55859V8.45859H14H12.9062Z' fill='%235E5E5E' stroke='%235E5E5E' stroke-width='0.2'/%3E%3Cpath d='M9.69566 6.37465L9.62495 6.30394L9.55424 6.37465L7.64683 8.28206V1.5V1.4H7.54683H6.45308H6.35308V1.5V8.28206L4.44566 6.37465L4.37495 6.30394L4.30424 6.37465L3.53085 7.14804L3.46014 7.21875L3.53085 7.28946L6.92924 10.6879L6.99995 10.7586L7.07066 10.6879L10.4691 7.28946L10.5398 7.21875L10.4691 7.14804L9.69566 6.37465Z' fill='%235E5E5E' stroke='%235E5E5E' stroke-width='0.2'/%3E%3C/g%3E%3C/svg%3E ")
+                margin-left: 10px
+

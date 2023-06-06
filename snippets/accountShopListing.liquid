@@ -1,0 +1,11 @@
+<article class="accountShop__product">
+    <a href="{{ item.url | within: collection }}">
+        <img class="accountShop__image" src="{{ item.featured_image.src | img_url: '440x' }}" alt="{{ item.featured_image.alt | escape }}"/>
+        <h3 class="accountShop__title">{{ item.title }}</h3>
+        <p class="accountShop__price">{{ item.price | money }}</p>
+        <p class="accountShop__soldby">
+            <span>Sold by</span>
+            <span class="accountShop__vendor">{{ item.vendor }}</span>
+        </p>
+    </a>
+</article>

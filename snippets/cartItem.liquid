@@ -1,0 +1,54 @@
+<article class="cartProduct">
+    <a href="{{ item.url }}">
+        <img src="{{ item | img_url: '280x' }}" alt="{{ item.title | escape }}"/>
+    </a>
+    <div class="cartProduct__info">
+        <div>
+            <a href="{{ item.url }}">
+                <p class="cartProduct__price">{{ item.line_price | money }}</p>
+                <h3 class="cartProduct__heading">{{ item.product.title }}</h3>
+            </a>
+
+            <p class="cartProduct__variant">
+                {% unless item.variant.title == "Default Title" %}
+                    {% if item.variant.title contains '/' %}
+                        {% assign colours = item.variant.title  | split: "/" %}
+                        {{colours[0]}}
+                    {% else %}
+                        {{ item.variant.title }}
+                    {% endif %}
+                {% endunless %}
+            </p>
+
+        </div>
+        <div class="cartProduct__input">
+
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                {% include 'miscInputDownArrow' %}
+            </button>
+            <input class="quantity" onchange="this.form.submit();" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0"/>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                {% include 'miscInputUpArrow' %}
+            </button>
+
+        </div>
+        <a class="cartProduct__remove">
+            {% include 'cartRemove' %}
+        </a>
+    </div>
+
+    <div class="confirm" id="delete-confirm" style="display: none">
+        <div class="confirm__info">
+            <h2 class="confirm__heading">Remove product</h2>
+            <p class="confirm__body">Are you sure you want to remove this product from your cart?</p>
+            <div class="confirm__buttons">
+                <a class="confirm__removeButton" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                    Remove
+                </a>
+                <button class="confirm__cancelButton" id="cancel" onclick="hideDelete()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</article>

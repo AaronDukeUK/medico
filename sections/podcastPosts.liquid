@@ -1,0 +1,14 @@
+<section class="podcastPosts">
+    <div class="container podcastPosts__container">
+        {% paginate blog.articles by 9 %}
+            {% for article in blog.articles %}
+                {% include 'podcastPost' %}
+            {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+            <div class="paginate">
+                {{ paginate | default_pagination }}
+            </div>
+        {% endif %}
+    {% endpaginate %}
+</section>

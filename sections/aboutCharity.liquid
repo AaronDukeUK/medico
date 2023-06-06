@@ -1,0 +1,56 @@
+<section class="aboutCharity"  data-aos="fade-up">
+    <div class="aboutCharity__container container">
+        <h2 class="aboutCharity__heading" data-aos-delay="100" data-aos="fade-up">{{section.settings.title}}</h2>
+        <div class="aboutCharity__logoContainer">
+            <a class="aboutCharity__logo" href="#" data-aos-delay="200" data-aos="fade-up">
+                {% if section.settings.charity_one != blank %}
+                {{ section.settings.charity_one | img_url: '320x' | img_tag }}
+            {% else %}
+            {{ "Charity_One.png" | asset_url | img_tag: "Charity Logo" }}
+            {% endif %}
+            </a>
+            <a class="aboutCharity__logo" href="#" data-aos-delay="300" data-aos="fade-up">
+                {% if section.settings.charity_two != blank %}
+                {{ section.settings.charity_two | img_url: '320x' | img_tag }}
+            {% else %}
+            {{ "Charity_Two.png" | asset_url | img_tag: "Charity Logo" }}
+            {% endif %}
+            </a>
+            <a class="aboutCharity__logo" href="#" data-aos-delay="400" data-aos="fade-up">
+                {% if section.settings.charity_three != blank %}
+                {{ section.settings.charity_three | img_url: '320x' | img_tag }}
+            {% else %}
+            {{ "Charity_Three.png" | asset_url | img_tag: "Charity Logo" }}
+            {% endif %}
+            </a>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+
+{
+"name": "About Charities",
+"settings": [
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Title",
+    "default": "Charities we’ve partnered with"
+  }, {
+    "type": "image_picker",
+    "id": "charity_one",
+    "label": "Charity One"
+  }, {
+    "type": "image_picker",
+    "id": "charity_two",
+    "label": "Charity Two"
+  }, {
+    "type": "image_picker",
+    "id": "charity_three",
+    "label": "Charity Three"
+  }
+]
+}
+
+{% endschema %}

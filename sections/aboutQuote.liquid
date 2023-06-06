@@ -1,0 +1,23 @@
+<section class="aboutQuote" data-aos="fade-up">
+    <div class="aboutQuote__container container">
+        <span class="aboutQuote__mark" data-aos-delay="100" data-aos="fade-up">“</span>
+        <h2 class="aboutQuote__heading" data-aos-delay="200" data-aos="fade-up">{{section.settings.quote}}</h2>
+        <span class="aboutQuote__mark" data-aos-delay="300" data-aos="fade-up">”</span>
+    </div>
+</section>
+
+{% schema %}
+
+{
+"name": "About Quote",
+"settings": [
+  {
+    "type": "textarea",
+    "id": "quote",
+    "label": "Text",
+    "default": "Egestas enim purus et a. A, sit id tellus porta ullamcorper tortor donec massa purus. Ut mauris, volutpat pellentesque urna sem integer turpis turpis nisl. Dolor pulvinar massa adipiscing dui enim sed."
+  }
+]
+}
+
+{% endschema %}

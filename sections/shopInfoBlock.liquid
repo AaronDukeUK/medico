@@ -1,0 +1,40 @@
+<div class="container">
+    <section class="shopInfo" data-aos="fade-up">
+        <div class="shopInfo__svg">
+            {% include 'shopInfoBlock' %}
+        </div>
+        <div class="shopInfo__content">
+            <h2 class="shopInfo__heading" data-aos="fade-up">{{section.settings.info_title}}</h2>
+            <p class="shopInfo__body" data-aos-delay="100" data-aos="fade-up">{{section.settings.info_text}}</p>
+            <a data-aos-delay="150" data-aos="fade-up" href="https://marketplace.marketcube.io/join/5f56581aff583f0012fe2c1e/medico-marketplace">
+                <button class="shopInfo__button">{{section.settings.info_button}}</button>
+            </a>
+        </div>
+    </section>
+</div>
+
+{% schema %}
+
+{
+"name": "Shop Info Block",
+"settings": [
+  {
+    "type": "text",
+    "id": "info_title",
+    "label": "Info Title",
+    "default": "Join the community of sellers!"
+  }, {
+    "type": "text",
+    "id": "info_text",
+    "label": "Info Text",
+    "default": "Sell your own products and reach thousands of buyers to earn cash for yourself and for charity!"
+  }, {
+    "type": "text",
+    "id": "info_button",
+    "label": "Button Text",
+    "default": "Open your shop"
+  }
+]
+}
+
+{% endschema %}

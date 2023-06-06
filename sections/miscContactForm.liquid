@@ -1,0 +1,29 @@
+<div class="container">
+    <section class="contact" data-aos="fade-up">
+        <h1 class="contact__heading" data-aos-delay="100" data-aos="fade-up">Want to know more?</h1>
+        <p class="contact__body" data-aos-delay="200" data-aos="fade-up">Get in touch with us through the form below.</p>
+        {% form 'contact' %}
+        {% if form.posted_successfully? %}
+            <div class="contact__success">
+                <p>Thank you for your email. We will response as soon as we can.</p>
+            </div>
+        {% endif %}
+
+        {% if form.errors %}
+            <div class="contact__error">
+            <p>Your contact form has {{ form.errors | size | pluralize: "an error", "a few errors" }}. To submit your form, make the following changes and try again:</p>
+            {% for field in form.errors %}
+                <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+            <input data-aos-delay="100" data-aos="fade-up" class="contact__input" id="ContactFormName" required name="contact[name]" placeholder="Name" type="text"/>
+            <input data-aos-delay="200" data-aos="fade-up" class="contact__input" id="ContactFormEmail" required name="contact[email]" placeholder="Email" type="email"/>
+            <input data-aos-delay="300" data-aos="fade-up" class="contact__input" id="ContactFormSubject" required name="contact[subject]" placeholder="Subject" type="text"/>
+            <textarea  data-aos-delay="400" data-aos="fade-up" class="contact__input contact__input--large" required id="contactFormMessage" name="contact[body]"placeholder="Message"/></textarea>
+            <button data-aos-delay="500" data-aos="fade-up" class="contact__button" id="ContactFormButton" type="submit">Send</button>
+        
+        {% endform %}
+    </section>
+</div>

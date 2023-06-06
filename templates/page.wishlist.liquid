@@ -1,0 +1,16 @@
+{% layout 'infoTheme' %}
+
+{% if customer %}
+    {% section 'accountProfile' %}
+    {% section 'accountTabs' %}
+{% endif %}
+<div>
+    <!-- include 'wishlist-collection' -->
+</div>
+<script>
+    const wishlistTab = document.getElementById("wishlistTab")
+    const wishlisturl = window.location.href;
+    if (wishlisturl.indexOf("/pages/wishlist") != -1) {
+        wishlistTab.classList.add("accountTabs__heading--active")
+    }
+</script>

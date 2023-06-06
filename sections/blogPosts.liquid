@@ -1,0 +1,41 @@
+<section class="blogPosts" data-aos="fade-up" id="posts">
+    <div class="container blogPosts__container">
+        {% paginate blog.articles by 9 %}
+
+            {% for article in blog.articles %}
+                <a href="{{ article.url }}">
+                    <article class="blogPosts__post" data-aos-delay="100" data-aos="fade-up">
+                        <div class="blogPosts__image">
+                            <img src="{{ article.image | img_url: '600x' }}" alt="{{ article.image.alt }}" data-aos-delay="100" data-aos="fade-up"/>
+                        </div>
+                        <h2 class="blogPosts__heading" data-aos-delay="200" data-aos="fade-up">{{ article.title }}</h2>
+                        <p class="blogPosts__date" data-aos-delay="300" data-aos="fade-up">
+                            {{ article.created_at | date: "%B %d, %Y" }}
+                        </p>
+                        <p class="blogPosts__body" data-aos-delay="400" data-aos="fade-up">
+                            {% if article.excerpt.size > 0 %}
+                                {{ article.excerpt | strip_html | truncatewords: 15 }}
+                            {% else %}
+                                {{ article.content | strip_html | truncatewords: 15 }}
+                            {% endif %}
+                        </p>
+                    </article>
+                </a>
+            {% endfor %}
+
+            {% if paginate.pages > 1 %}
+                <div class="paginate" data-aos="fade-up">
+                    {{ paginate | default_pagination }}
+                </div>
+            {% endif %}
+        {% endpaginate %}
+    </div>
+</section>
+
+<script>
+    const blogurl = window.location.href;
+    if (blogurl.indexOf("?page=") != -1) {
+        location.href = "#";
+        location.href = "#posts";
+    }
+</script>

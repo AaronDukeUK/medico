@@ -1,0 +1,76 @@
+<div class="container">
+    <section class="sellicons" data-aos="fade-up">
+        <div class="sellicons__iconsContainer">
+            <div class="sellicons__iconSet" data-aos-delay="100" data-aos="fade-up">
+                <div class="sellicons__icon">{% include 'sellSupport' %}</div>
+                <h2 class="sellicons__heading">{{section.settings.title_one}}</h2>
+                <p class="sellicons__body">
+                    {{section.settings.text_one}}
+                </p>
+            </div>
+            <div class="sellicons__iconSet" data-aos-delay="200" data-aos="fade-up">
+                <div class="sellicons__icon">{% include 'sellProfit' %}</div>
+                <h2 class="sellicons__heading">{{section.settings.title_two}}</h2>
+                <p class="sellicons__body">
+                    {{section.settings.text_two}}
+                </p>
+            </div>
+            <div class="sellicons__iconSet" data-aos-delay="300" data-aos="fade-up">
+                <div class="sellicons__icon">{% include 'sellSecure' %}</div>
+                <h2 class="sellicons__heading">{{section.settings.title_three}}</h2>
+                <p class="sellicons__body">
+                    {{section.settings.text_three}}
+                </p>
+            </div>
+        </div>
+        <a data-aos="fade-up" target="_blank" href="https://sell.medicolifestyle.com/join/5f56581aff583f0012fe2c1e/medico-marketplace">
+            <button class="sellicons__button">{{section.settings.button}}</button>
+        </a>
+    </section>
+</div>
+
+{% schema %}
+
+{
+    "name": "Sell Icons",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title_one",
+            "label": "Icon One Title",
+            "default": "Support"
+        }, {
+            "type": "textarea",
+            "id": "text_one",
+            "label": "Icon One Text",
+            "default": "24/7 cursus elit et auctor adipiscing arcu. Lectus euismod elementum fermentum blandit. Est auctor purus turpis convallis etiam in ullamcorper."
+        }, {
+            "type": "text",
+            "id": "title_two",
+            "label": "Icon Two Title",
+            "default": "Profit"
+        }, {
+            "type": "textarea",
+            "id": "text_two",
+            "label": "Icon Two Text",
+            "default": "Ectus euismod 5% elementum fermentum blandit. Est auctor purus turpis conval."
+        }, {
+            "type": "text",
+            "id": "title_three",
+            "label": "Icon Three Title",
+            "default": "Secure"
+        }, {
+            "type": "textarea",
+            "id": "text_three",
+            "label": "Icon Three Text",
+            "default": "Sed urna tortor, lacus purus aliquam pharetra eu est ac. Viverra ultricies lorem sed placerat etiam ac orci."
+        }, {
+            "type": "text",
+            "id": "button",
+            "label": "Button Text",
+            "default": "Open your shop"
+        }
+    ]
+}
+
+{% endschema %}

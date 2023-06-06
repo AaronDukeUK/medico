@@ -1,0 +1,45 @@
+{% assign currentHandle = article.handle %}
+{% assign articlesFound = 0 %}
+
+<section class="blogMore" data-aos="fade-up">
+    <div class="container">
+        <h2 class="blogMore__heading blogMore__heading--main" data-aos="fade-up" data-aos-delay="100">
+            You may also like...
+        </h2>
+        <div class="blogMore__container">
+            {% for article in blog.articles %}
+                {% if article.tags contains 'featured' %}
+                    {% unless article.handle == currentHandle %}
+                        <a href="{{ article.url }}">
+                            <article class="blogMore__post" data-aos="fade-up" data-aos-delay="200">
+                                <div class="blogMore__image" data-aos="fade-up" data-aos-delay="300">
+                                    <img src="{{ article.image | img_url: '600x' }}" alt="{{ article.image.alt }}"/>
+                                </div>
+                                <h2 class="blogMore__heading" data-aos="fade-up" data-aos-delay="400">
+                                    {{ article.title }}
+                                </h2>
+                                <p class="blogMore__date" data-aos="fade-up" data-aos-delay="500">
+                                    {{ article.created_at | date: "%B %d, %Y" }}
+                                </p>
+                                <p class="blogMore__body" data-aos="fade-up" data-aos-delay="600">
+                                    {% if article.excerpt.size > 0 %}
+                                        {{ article.excerpt | truncatewords: 15 }}
+                                    {% else %}
+                                        {{ article.content | strip_html | truncatewords: 100 }}
+                                    {% endif %}
+                                </p>
+                            </article>
+                        </a>
+                        {% assign articlesFound = articlesFound |plus: 1 %}
+                        {% if articlesFound == 3 %}
+                            {% break %}
+                        {% endif %}
+                    {% endunless %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <a href="/blogs/medico" data-aos="fade-up" data-aos-delay="700">
+            <button class="blogMore__button">View all</button>
+        </a>
+    </div>
+</section>

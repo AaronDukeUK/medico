@@ -1,0 +1,59 @@
+<div class="container">
+    <section class="aboutHow"data-aos="fade-up">
+        <div class="aboutHow__image" data-aos-delay="100" data-aos="fade-up">
+            {% if section.settings.about_image != blank %}
+                {{ section.settings.about_image | img_url: '1000x' | img_tag }}
+            {% else %}
+            {{ "About_How.png" | asset_url | img_tag: "How" }}
+            {% endif %}
+        </div>
+        <div class="aboutHow__content" data-aos-delay="200" data-aos="fade-up">
+            <h2 class="aboutHow__heading">{{section.settings.about_title}}</h2>
+            <p class="aboutHow__body">
+                {{section.settings.about_text_one}}
+            </p>
+            <p class="aboutHow__body">
+                {{section.settings.about_text_two}}
+            </p>
+            <p class="aboutHow__body">
+                {{section.settings.about_text_three}}
+            </p>
+        </div>
+
+    </section>
+</div>
+
+{% schema %}
+
+{
+"name": "About Section Two",
+"settings": [
+  {
+    "type": "text",
+    "id": "about_title",
+    "label": "Title",
+    "default": "How we got here"
+  }, {
+    "type": "textarea",
+    "id": "about_text_one",
+    "label": "Text One",
+    "default": "Egestas enim purus et a. A, sit id tellus porta ullamcorper tortor donec massa purus. Ut mauris, volutpat pellentesque urna sem integer turpis turpis nisl. Dolor pulvinar massa adipiscing dui enim sed. Sed maecenas morbi non dictum mattis mi commodo. Parturient dolor risus nisl augue amet gravida dui eget."
+  }, {
+    "type": "textarea",
+    "id": "about_text_two",
+    "label": "Text Two",
+    "default": "Pellentesque purus nam quam euismod ut molestie. Tempor in diam enim commodo erat vitae morbi augue. Tellus porttitor viverra a morbi vivamus commodo non at. Erat ornare vitae magna ipsum purus vitae orci auctor quam. Lectus ac vitae egestas habitasse condimentum tincidunt."
+  }, {
+    "type": "textarea",
+    "id": "about_text_three",
+    "label": "Text Three",
+    "default": "Lorem orci, nam et nascetur sed vulputate odio orci. Pulvinar ultrices consequat, vitae ac pretium. In nunc donec arcu tristique pretium id."
+  }, {
+    "type": "image_picker",
+    "id": "about_image",
+    "label": "Image"
+  }
+]
+}
+
+{% endschema %}

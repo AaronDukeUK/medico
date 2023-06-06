@@ -1,0 +1,13 @@
+{% layout 'infoTheme' %}
+
+{% section 'accountProfile' %}
+{% section 'accountTabs' %}
+{% section 'accountPurchases' %}
+
+<script>
+    const purchasesTab = document.getElementById("purchasesTab")
+    const accounturl = window.location.href;
+    if (accounturl.indexOf("/account") != -1) {
+        purchasesTab.classList.add("accountTabs__heading--active")
+    }
+</script>

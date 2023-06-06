@@ -1,0 +1,60 @@
+{
+  "name": "medico-lifestyle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MadeBySphere/medico-lifestyle.git",
+  "author": "Chris Ingram <chris@chrisingram.me>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "autoprefixer": "^9.7.5",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.1.0",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass-glob-importer": "^5.3.2",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/runtime": "^7.12.5",
+    "@shopify/theme-a11y": "^4.0.2",
+    "@shopify/theme-currency": "^4.0.2",
+    "@shopify/theme-product": "^4.0.2",
+    "@shopify/theme-product-form": "^4.0.2",
+    "@shopify/theme-sections": "^4.0.2",
+    "@svgr/webpack": "^5.5.0",
+    "aos": "^3.0.0-beta.6",
+    "chokidar": "^3.4.2",
+    "normalize.css": "^8.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loading-skeleton": "^2.1.1",
+    "smoothscroll-polyfill": "^0.4.4",
+    "styled-breakpoints": "^9.0.8",
+    "styled-components": "^5.2.1",
+    "swr": "^0.3.9",
+    "tailwindcss": "^2.0.1",
+    "twin.macro": "^2.0.6"
+  },
+  "scripts": {
+    "start": "theme download config/settings_data.json && rm -rf assets/* && webpack && theme deploy && concurrently -k -n \"WEBPACK,THEMEKIT\" -c \"bgBlue.bold,bgGreen.bold\" \"webpack -w\" \"theme watch\"",
+    "deploy": "theme download config/settings_data.json && webpack --mode production && theme deploy"
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components"
+    }
+  }
+}

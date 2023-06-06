@@ -1,0 +1,139 @@
+@import "../variables"
+@import "../breakpoints"
+
+.order
+    padding: 30px 0
+    h3
+        color: $mediBlue
+        margin-bottom: 9px
+    &__info
+        h3
+            display: none
+    &__date
+        color: $mediDarkGrey
+    &__status
+        color: $mediOrange
+        margin-bottom: 9px
+    &__images
+        display: flex
+        margin-bottom: 14px
+    &__image
+        width: calc(33% - 8px)
+        margin-right: 8px
+        img
+            width: 100%
+    &__image-extra
+        position: relative
+    &__image-plus
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 2
+        width: 100%
+        height: 100%
+        background: rgba(0, 0, 0, 0.4)
+        text-align: center
+        display: flex
+        align-items: center
+        justify-content: center
+        font-family: 'Sofia Pro'
+        font-weight: 900
+        color: white
+        font-size: 29px
+
+
+
+    &__button
+        color: $mediDarkGrey
+        border-color: $mediDarkGrey
+        font-weight: 500
+    @include md
+        padding: 33px 0
+        display: flex
+        & > h3
+            display: none
+        &__images
+            flex: 1
+        &__image
+            width: calc(20% - 13px)
+            margin-right: 13px
+        &__date
+            margin-bottom: 8px
+        &__status
+            margin-bottom: 20px
+        &__info
+            text-align: right
+            h3
+                display: block
+                font-size: 18px
+
+    
+
+.purchases
+    hr
+        border: 0
+        border-top: 1px solid $mediLightGrey
+        &:last-of-type
+            display: none
+    &__button
+        color: $mediDarkGrey
+        border: 1px solid $mediDarkGrey
+        transition: all 0.15s ease-in-out
+        &--mobile
+            display: none
+            @media only screen and (max-width: 700px)
+                display: block
+        &:hover
+            background: $mediBlue
+            color: $mediWhite
+            border: 1px solid $mediWhite
+    &__empty
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        margin: 0 auto
+        overflow: hidden
+        svg
+            margin-left: 90px
+        @media only screen and (max-width: 650px)
+            padding: 60px 0
+            svg
+                width: 80%
+                height: auto
+    &__emptyText
+        margin: 45px 10px 16px 10px
+        text-align: center
+        max-width: 460px
+    &__emptyButton
+        color: $mediDarkGrey
+        border: 1px solid $mediDarkGrey
+        transition: all 0.15s ease-in-out
+        &:hover
+            color: $mediWhite
+            border: 1px solid $mediBlue
+            background: $mediBlue
+    &__pagination
+        border: none
+        display: flex
+        justify-content: center
+        padding-bottom: 30px
+        a
+            display: flex
+            justify-content: center
+            align-items: center
+            color: $mediDarkGrey
+            font-family: $pFF
+            font-size: $pFS
+            line-height: $pLH
+            padding: 5px 15px
+        a.disabled
+            color: $mediLightGrey
+        .page-numbers
+            display: flex
+            align-items: center
+            justify-content: center
+            a.is-active
+                border: 1px solid $mediDarkGrey
+                opacity: 1
+

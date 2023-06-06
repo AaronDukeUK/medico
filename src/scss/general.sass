@@ -1,0 +1,105 @@
+$aos-distance: 10px
+@import "~aos/src/sass/aos.scss"
+
+@import "variables"
+@import "breakpoints"
+
+.container
+    height: 100%
+    margin: 0 auto
+    padding: 0 15px
+    @include md
+        padding: 0 30px
+    @include lg
+        max-width: 1150px
+
+button
+    padding: $buttonP
+    border: 1px solid $mediWhite
+    font-family: 'Apercu'
+    background: none
+    color: $mediWhite
+    font-size: 14px
+    cursor: pointer
+    outline: none
+
+input:focus, textarea:focus, button:focus, select:focus
+    outline: none
+
+.paginate
+    margin-top: 50px
+    span, a
+        display: inline-block
+        color: $mediDarkGrey
+        font-family: $pFF
+        font-size: $pFS
+        line-height: $pLH
+        margin-right: 10px
+    .page
+        margin-right: 10px
+    .current
+        border: 1px solid $mediDarkGrey
+        margin-right: 15px
+        padding: 5px 15px
+
+.bold
+    font-weight: bold
+
+.shopify-challenge__container
+    min-height: 60vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    .shopify-challenge__message
+        margin-top: 40px
+    .g-recaptcha
+        margin: 40px 0
+    .shopify-challenge__button
+        letter-spacing: 0.1rem
+        padding: 1rem 2rem
+        background: $mediBlue
+        padding: $buttonP
+        border: 1px solid $mediWhite
+        font-family: 'Apercu'
+        color: $mediWhite
+        font-size: 14px
+        cursor: pointer
+        outline: none
+        transition: all 0.15s ease-in-out
+        &:hover
+            background: $mediWhite
+            color: $mediBlue
+            border: 1px solid $mediBlue
+
+.shopify-policy__title
+    background: $mediBlue
+    height: 300px
+    position: absolute
+    left: 0
+    right: 0
+    top: 60px
+    display: flex
+    align-items: center
+    justify-content: center
+    @media only screen and (max-width: 550px)
+        height: 100px
+
+.shopify-policy__body
+    margin-top: 400px
+    margin-bottom: 100px
+    @media only screen and (max-width: 550px)
+        margin-top: 150px
+    p
+        margin: 15px 0
+        &:last-child, &:first-child
+            margin: 0
+
+.wishlistLink
+    color: $mediBlue
+    transition: all 0.15s ease-in-out
+    &:hover
+        opacity: 0.5
+
+.extraPadding
+    min-height: 80vh

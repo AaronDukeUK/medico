@@ -1,0 +1,46 @@
+@import "variables"
+@import "breakpoints"
+
+h1
+    font-family: $h1FF
+    font-weight: $h1FW
+    font-size: $h1FS
+    line-height: $h1LH
+    color: $mediWhite
+    @media only screen and (max-width: 600px)
+        font-size: 26px
+        line-height: 35px
+
+h2
+    font-family: $h2FF
+    font-weight: $h2FW
+    font-size: $h2FS
+    line-height: $h2LH
+    @include md
+        font-size: $h2FS_md
+    @include lg
+        font-size: $h2FS_lg
+
+h3
+    font-family: $h3FF
+    font-weight: $h3FW
+    font-size: $h3FS
+    line-height: $h3LH
+
+
+p
+    font-family: $pFF
+    font-size: $pFS
+    line-height: $pLH
+    color: $mediDarkGrey
+    @include lg
+        font-size: $pFS_lg
+
+a
+    text-decoration: none
+    font-family: $pFF
+    font-size: $pFS
+    line-height: $pLH
+    color: $mediWhite
+    @include lg
+        font-size: $pFS_lg

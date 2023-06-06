@@ -1,0 +1,58 @@
+@import "../variables"
+@import "../breakpoints"
+
+.podcast
+    background: $mediBlue
+    border: 12px solid $mediPink
+    color: $mediWhite
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    justify-content: flex-end
+    @include md
+        flex-direction: row
+    &__image
+        width: 50%
+        img
+            height: 100%
+            width: 100%
+            object-fit: cover
+        @media only screen and (max-width: 900px)
+            width: 285px
+        @media only screen and (max-width: 750px)
+            height: 370px
+            width: 100%
+        @media only screen and (max-width: 650px)
+            height: 270px
+    &__content
+        flex: 1
+        padding: 28px
+        @include md
+            padding: 40px
+        @include lg
+            padding: 50px
+    &__span
+        color: $mediPink
+    &__heading
+        @media only screen and (max-width: 600px)
+            font-size: 26px
+            line-height: 28px
+    &__body
+        max-width: 389px
+        margin: 20px 0
+        color: $mediWhite
+        @media only screen and (max-width: 900px)
+            max-width: 366px
+            overflow: hidden
+            display: -webkit-box
+            -webkit-line-clamp: 5
+            -webkit-box-orient: vertical
+        @media only screen and (max-width: 750px)
+            display: block
+    &__button
+        background: $mediBlue
+        color: $mediWhite
+        transition: all 0.15s ease-in-out
+        &:hover
+            background: $mediWhite
+            color: $mediBlue

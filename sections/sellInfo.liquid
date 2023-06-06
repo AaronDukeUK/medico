@@ -1,0 +1,121 @@
+<div class="container">
+  <section class="sellInfo" data-aos="fade-up">
+    <div class="sellInfo__container" data-aos-delay="100" data-aos="fade-up">
+      <div class="sellInfo__content">
+        <h1 class="sellInfo__heading">{{section.settings.title_one}}</h1>
+        <p class="sellInfo__body">
+          {{section.settings.text_one_one}}
+        </p>
+        <p class="sellInfo__body">
+          {{section.settings.text_one_two}}
+        </p>
+        <p class="sellInfo__body">
+          {{section.settings.text_one_three}}
+        </p>
+      </div>
+      <div class="sellInfo__image" data-aos-delay="200" data-aos="fade-up">{% include 'sellFees' %}</div>
+    </div>
+    <div class="sellInfo__container sellInfo__container--flip">
+      <div class="sellInfo__image" data-aos-delay="200" data-aos="fade-up">{% include 'sellCommunity' %}</div>
+      <div class="sellInfo__content sellInfo__content--flip" data-aos-delay="100" data-aos="fade-up">
+        <h1 class="sellInfo__heading">{{section.settings.title_two}}</h1>
+        <p class="sellInfo__body">
+          {{section.settings.text_two_one}}
+        </p>
+        <p class="sellInfo__body">
+          {{section.settings.text_two_two}}
+        </p>
+        <p class="sellInfo__body">
+          {{section.settings.text_two_three}}
+        </p>
+      </div>
+    </div>
+    <div class="sellInfo__container">
+      <div class="sellInfo__content" data-aos-delay="100" data-aos="fade-up">
+        <h1 class="sellInfo__heading">{{section.settings.title_three}}</h1>
+        <p class="sellInfo__body">
+          {{section.settings.text_three_one}}
+        </p>
+        <p class="sellInfo__body">
+          {{section.settings.text_three_two}}
+        </p>
+        <p class="sellInfo__body">
+          {{section.settings.text_three_three}}
+        </p>
+      </div>
+      <div class="sellInfo__image" data-aos-delay="200" data-aos="fade-up">{% include 'sellProducts' %}</div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+
+{
+"name": "Sell Info",
+"settings": [
+  {
+    "type": "text",
+    "id": "title_one",
+    "label": "Section One Title",
+    "default": "Fees"
+  }, {
+    "type": "textarea",
+    "id": "text_one_one",
+    "label": "Section One - Text One",
+    "default": "Egestas enim purus et a. A, sit id tellus porta ullamcorper tortor donec massa purus. Ut mauris, volutpat pellentesque urna sem integer turpis turpis nisl."
+  }, {
+    "type": "textarea",
+    "id": "text_one_two",
+    "label": "Section One - Text Two",
+    "default": "Pellentesque purus nam quam euismod ut molestie. Tempor in diam enim commodo erat vitae morbi augue. Tellus porttitor viverra a morbi vivamus commodo non at. Erat ornare vitae magna ipsum purus vitae orci auctor quam. Lectus ac vitae egestas habitasse condimentum tincidunt."
+  }, {
+    "type": "textarea",
+    "id": "text_one_three",
+    "label": "Section One - Text Three",
+    "default": "Lorem orci, nam et nascetur sed vulputate odio orci. Pulvinar ultrices consequat, vitae ac pretium. In nunc donec arcu tristique pretium id."
+  }, {
+    "type": "text",
+    "id": "title_two",
+    "label": "Section Two Title",
+    "default": "Community"
+  }, {
+    "type": "textarea",
+    "id": "text_two_one",
+    "label": "Section Two - Text One",
+    "default": "Egestas enim purus et a. A, sit id tellus porta ullamcorper tortor donec massa purus. Ut mauris, volutpat pellentesque urna sem integer turpis turpis nisl."
+  }, {
+    "type": "textarea",
+    "id": "text_two_two",
+    "label": "Section Two - Text Two",
+    "default": "Pellentesque purus nam quam euismod ut molestie. Tempor in diam enim commodo erat vitae morbi augue. Tellus porttitor viverra a morbi vivamus commodo non at. Erat ornare vitae magna ipsum purus vitae orci auctor quam. Lectus ac vitae egestas habitasse condimentum tincidunt."
+  }, {
+    "type": "textarea",
+    "id": "text_two_three",
+    "label": "Section Two - Text Three",
+    "default": "Lorem orci, nam et nascetur sed vulputate odio orci. Pulvinar ultrices consequat, vitae ac pretium. In nunc donec arcu tristique pretium id."
+  }, {
+    "type": "text",
+    "id": "title_three",
+    "label": "Section Three Title",
+    "default": "Products"
+  }, {
+    "type": "textarea",
+    "id": "text_three_one",
+    "label": "Section Three - Text One",
+    "default": "Egestas enim purus et a. A, sit id tellus porta ullamcorper tortor donec massa purus. Ut mauris, volutpat pellentesque urna sem integer turpis turpis nisl."
+  }, {
+    "type": "textarea",
+    "id": "text_three_two",
+    "label": "Section Three - Text Two",
+    "default": "Pellentesque purus nam quam euismod ut molestie. Tempor in diam enim commodo erat vitae morbi augue. Tellus porttitor viverra a morbi vivamus commodo non at. Erat ornare vitae magna ipsum purus vitae orci auctor quam. Lectus ac vitae egestas habitasse condimentum tincidunt."
+  }, {
+    "type": "textarea",
+    "id": "text_three_three",
+    "label": "Section Three - Text Three",
+    "default": "Lorem orci, nam et nascetur sed vulputate odio orci. Pulvinar ultrices consequat, vitae ac pretium. In nunc donec arcu tristique pretium id."
+  }
+
+]
+}
+
+{% endschema %}

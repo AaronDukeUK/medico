@@ -1,0 +1,17 @@
+<select class="collectionItems__sort" id="sort-by" name="sort_by">
+    <option disabled value="manual">Sort options</option>
+    <option value="best-selling" {% if option.value == collection.sort_by %} selected {% endif %}>Most
+                Popular</option>
+    <option value="title-ascending" {% if option.value == collection.sort_by %} selected {% endif %}>A-Z
+    </option>
+    <option value="title-descending" {% if option.value == collection.sort_by %} selected {% endif %}>Z-A
+    </option>
+    <option value="price-ascending" {% if option.value == collection.sort_by %} selected {% endif %}>£,
+                Lowest</option>
+    <option value="price-descending" {% if option.value == collection.sort_by %} selected {% endif %}>£,
+                Highest
+    </option>
+    <option value="created-descending" {% if option.value == collection.sort_by %} selected {% endif %}>
+        Newest First
+    </option>
+</select>

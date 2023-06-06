@@ -1,0 +1,53 @@
+<section class="blogHero">
+    <div class="blogHero__container container">
+        <div class="blogHero__content">
+            <h1 class="blogHero__heading">{{section.settings.blog_title}}</h1>
+            <p class="blogHero__body">
+                {{section.settings.blog_text_one}}
+            </p>
+            <p class="blogHero__body">
+                {{section.settings.blog_text_two}}
+            </p>
+            <a data-aos-delay="100" data-aos="fade-up" href="#shopify-section-blogTopics" id="arrow-down">
+                {% include 'miscHeroArrow' %}
+            </a>
+        </div>
+        <div class="blogHero__herosvg">{% include 'blogHero' %}</div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll("a#arrow-down").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const anchorName = link.getAttribute("href");
+            document.querySelector(anchorName).scrollIntoView({behavior: "smooth"});
+        })
+    });
+</script>
+
+{% schema %}
+
+{
+"name": "Blog Page Hero",
+"settings": [
+  {
+    "type": "text",
+    "id": "blog_title",
+    "label": "Title",
+    "default": "Blog"
+  }, {
+    "type": "text",
+    "id": "blog_text_one",
+    "label": "Text One",
+    "default": "Dolor sit amet, consectetur adipiscing elit. Arcu quisque feugiat commodo faucibus. Neque, ultrices urna, integer et orci risus, et nam amet."
+  }, {
+    "type": "text",
+    "id": "blog_text_two",
+    "label": "Text Two",
+    "default": "Purus eget lectus ac morbi semper adipiscing dui. Arcu, urna mauris a nulla. At odio lorem eget phasellus a fermentum et placerat sagittis."
+  }
+]
+}
+
+{% endschema %}

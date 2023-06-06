@@ -1,0 +1,47 @@
+@import "../variables"
+@import "../breakpoints"
+
+#shopify-section-shopInfoBlock
+    padding-bottom: 30px
+    @include md
+        padding-bottom: 50px
+    @include lg
+        padding-bottom: 65px
+.shopInfo
+    background: $mediBlue
+    border: 12px solid $mediPink
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 40px 90px
+    @media only screen and (max-width: 950px)
+        padding: 48px 40px
+    @media only screen and (max-width: 750px)
+        flex-direction: column
+        padding: 48px 28px
+    &__svg
+        width: 450px
+        @media only screen and (max-width: 950px)
+            width: 261px
+        @media only screen and (max-width: 750px)
+            width: 80%
+        svg
+            width: 100%
+            height: auto
+    &__content
+        margin-left: 70px
+        @media only screen and (max-width: 750px)
+            max-width: 100%
+            margin-top: 40px
+            margin-left: 0
+    &__heading
+        color: $mediWhite
+    &__body
+        color: $mediWhite
+        margin: 20px 0
+    &__button
+        background: $mediBlue
+        transition: all 0.15s ease-in-out
+        &:hover
+            color: $mediBlue
+            background: $mediWhite

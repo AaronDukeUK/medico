@@ -1,0 +1,49 @@
+<div class="container">
+    <section class="faq">
+        {% for block in section.blocks %}
+
+            {% include 'miscFAQquestion' %}
+
+        {% endfor %}
+    </section>
+</div>
+
+<script>
+
+  const faq = Array.from(document.querySelectorAll('.faq__item'));
+
+  const handleFAQClick = (e) => {
+    e.preventDefault();
+    e.currentTarget.classList.toggle('faq__item--active');
+  }
+  faq.forEach(node => {
+    node.addEventListener('click', handleFAQClick)
+  });
+
+</script>
+
+{% schema %}
+    {
+        "name": "FAQ Blocks",
+        "blocks": [
+            {
+                "type": "text",
+                "name": "FAQ",
+                "settings": [
+                    {
+                        "type": "text",
+                        "label": "FAQ Question",
+                        "id": "faq_question",
+                        "default": "Risus, porttitor sit est, faucibus volutpat, turpis massa arcu at?"
+                    },
+                    {
+                        "type": "textarea",
+                        "label": "FAQ Answer",
+                        "id": "faq_answer",
+                        "default": "Risus, porttitor sit est, faucibus volutpat, turpis massa arcu at. At amet sodales ac purus, risus, congue. Hac nulla felis tortor elementum turpis felis enim. Est sit dolor nisl cursus tincidunt. Lectus parturient libero leo aliquam ac sed non morbi."
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,429 @@
+{
+  "current": {
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_sidebar_background_color": "#f1f2fb",
+    "checkout_heading_font": "Open Sans",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#161cd0",
+    "checkout_button_color": "#161cd0",
+    "sections": {
+      "homeNavbar": {
+        "type": "homeNavbar",
+        "settings": {}
+      },
+      "homeHero": {
+        "type": "homeHero",
+        "settings": {
+          "hero_subtitle": "Hello 👋 Welcome to Medico Lifestyle!",
+          "hero_wordOne": "community",
+          "hero_wordTwo": "marketplace",
+          "hero_wordThree": "podcast",
+          "hero_wordFour": "blog"
+        }
+      },
+      "homeCards": {
+        "type": "homeCards",
+        "settings": {
+          "shop_text": "Check out products from our lovely vendors in the marketplace",
+          "podcast_text": "Listen to all our podcasts and download our PDFs",
+          "blog_text": "Read stories from our community",
+          "shop_image": "shopify:\/\/shop_images\/mike-petrucci-c9FQyqIECds-unsplash.jpg"
+        }
+      },
+      "homeAbout": {
+        "type": "homeAbout",
+        "settings": {
+          "about_title_one": "Who are Medico?",
+          "about_title_two": "Meet Emily and Jonas",
+          "about_text": "The medical student and junior doctor husband and wife team behind medico lifestyle. We have a mission to create a community of healthcare professionals for learning, growing and shopping. We hope you enjoy our curated market place of beautiful products created by and for healthcare people. We know you will love them as much as we do."
+        }
+      },
+      "homeTopPicks": {
+        "type": "homeTopPicks",
+        "settings": {
+          "collection_name": "top-picks",
+          "collection_title": "Our top picks from the marketplace"
+        }
+      },
+      "homePodcast": {
+        "type": "homePodcast",
+        "settings": {
+          "podcast_title_one": "Check out the latest",
+          "podcast_title_two": "podcast episode",
+          "podcast_text": "Tackling touch medical topics and welcoming guests to talk about their work in the world of healthcare and beyond. In our clinical episodes Emily and Jonas discuss details of clinical cases including anatomy, physiology, management and pharmacology. We also speak to fantastic guests who teach us something new about the world of health care."
+        }
+      },
+      "miscInstagram": {
+        "type": "miscInstagram",
+        "settings": {}
+      },
+      "miscNewsletter": {
+        "type": "miscNewsletter",
+        "settings": {
+          "news_text": "Finally an e-mail you will look forward to reading. There will be no need to hit the unsubscribe button as each of our newsletters will be filled with education, interest and beautiful creations."
+        }
+      },
+      "miscFooter": {
+        "type": "miscFooter",
+        "settings": {}
+      },
+      "miscNavbar": {
+        "type": "miscNavbar",
+        "settings": {}
+      },
+      "miscShopNav": {
+        "type": "miscShopNav",
+        "settings": {}
+      },
+      "shopHero": {
+        "type": "shopHero",
+        "settings": {
+          "shop_title_one": "Real designs",
+          "shop_title_two": "By real creators",
+          "shop_title_three": "For real people",
+          "shop_text": "Take a look at our curated marketplace where a small amount from every sale goes to a charity our community cares about. Vendors from all over the world are designing and creating beautiful things to make you smile."
+        }
+      },
+      "shopCollectionOne": {
+        "type": "shopCollectionOne",
+        "settings": {
+          "collection_handle": "community-favourites"
+        }
+      },
+      "shopTopSellers": {
+        "type": "shopTopSellers",
+        "blocks": {
+          "9f418673-1298-4aa0-b251-57bff494c7ac": {
+            "type": "top_seller",
+            "settings": {
+              "seller_name": "gcnotes",
+              "seller_username": "gcnotes",
+              "seller_image": "shopify:\/\/shop_images\/r1wmaegolf2sk1wxzwll.png",
+              "seller_location": "London, UK"
+            }
+          },
+          "c3a83d93-39f9-46e0-9a24-85b6779f4f50": {
+            "type": "top_seller",
+            "settings": {
+              "seller_name": "Medic Flashcards",
+              "seller_username": "medic_flashcards",
+              "seller_image": "shopify:\/\/shop_images\/mc_dd8d7zNQx.jpg",
+              "seller_location": "Edinburgh, UK"
+            }
+          },
+          "94e12de7-78bb-434b-82cc-6d3e647c59dd": {
+            "type": "top_seller",
+            "settings": {
+              "seller_name": "annastamosis",
+              "seller_username": "annastamosis",
+              "seller_image": "shopify:\/\/shop_images\/mc_fh7Hr83-g.jpg",
+              "seller_location": "Evesham, UK"
+            }
+          },
+          "0b8526cb-94f4-4ff3-8470-9f0d677c6049": {
+            "type": "top_seller",
+            "settings": {
+              "seller_name": "FreyaDaisy",
+              "seller_username": "freyadaisy",
+              "seller_image": "shopify:\/\/shop_images\/mpgi0jdqjrl8hcjgsyyc.png",
+              "seller_location": "Winchester, UK"
+            }
+          }
+        },
+        "block_order": [
+          "9f418673-1298-4aa0-b251-57bff494c7ac",
+          "c3a83d93-39f9-46e0-9a24-85b6779f4f50",
+          "94e12de7-78bb-434b-82cc-6d3e647c59dd",
+          "0b8526cb-94f4-4ff3-8470-9f0d677c6049"
+        ],
+        "settings": {}
+      },
+      "shopInfoBlock": {
+        "type": "shopInfoBlock",
+        "settings": {
+          "info_title": "Join the community of sellers!",
+          "info_text": "Sell your own products and reach thousands of buyers to earn cash for yourself and for charity!",
+          "info_button": "Open your shop"
+        }
+      },
+      "shopCollectionTwo": {
+        "type": "shopCollectionTwo",
+        "settings": {
+          "collection_handle": ""
+        }
+      },
+      "shopCollectionThree": {
+        "type": "shopCollectionThree",
+        "settings": {
+          "collection_handle": "new-arrivals"
+        }
+      },
+      "sellHero": {
+        "type": "sellHero",
+        "settings": {
+          "title": "Create and share your products!",
+          "text": "The medico lifestyle marketplace is a curated collection of items created by independent vendors. Our unique vendors are all hand picked to serve our community and create things we all need or love!"
+        }
+      },
+      "sellHow": {
+        "type": "sellHow",
+        "settings": {
+          "title": "How does it work?",
+          "text_one": "If you want to sell on our marketplace you can set up your own online market stall in just a few simple steps. Once the Medico Lifestyle team have had a look at what you have to offer you will be up and running and selling to our community in a matter of moments. Log into your own marketplace page, view your orders and payments and support charities while you do it!",
+          "text_two": "",
+          "text_three": "",
+          "text_four": ""
+        }
+      },
+      "sellIcons": {
+        "type": "sellIcons",
+        "settings": {
+          "title_one": "Support",
+          "text_one": "Setting up and managing a store is easy but if you do have any issues we are always on hand to offer support.",
+          "title_two": "Charity",
+          "text_two": "We are commited to supporting charities that our community supports through our marketplace.",
+          "title_three": "Secure",
+          "text_three": "We support secure payments through all major methods including Apple Pay. All transaction costs are included simply in our 15% commission.",
+          "button": "Open your shop"
+        }
+      },
+      "sellReview": {
+        "type": "sellReview",
+        "settings": {
+          "text": "“Through Medico, I’ve been able to share my handmade pins and the community is so lovely and supportive.”",
+          "name": "Georgia Pinkton"
+        }
+      },
+      "sellInfo": {
+        "type": "sellInfo",
+        "settings": {
+          "title_one": "Fees",
+          "text_one_one": "At Medico Lifestyle we are passionate about keeping the costs to our vendors down. We want to encourage you to set up a store but don’t believe you should have to pay to do so. Why should you pay for something before you’ve tried it?",
+          "text_one_two": "With no set up costs and an overall commission fee of just 15%. No hidden fees or additional transaction costs.",
+          "text_one_three": "This is overall 50% cheaper than one of the leading market place websites. We want to your business to be a success.",
+          "title_two": "Community",
+          "text_two_one": "By listing your products on our market place you are accessing a unique customer base of health care people who are looking for exactly what you are selling. As well as making money for yourself and building your successful side hustle each sale is also donating to one of our community charities.",
+          "text_two_two": "You will also be supporting our community by helping to keep all of our educational content and podcast entirely free which goes a long way to widening access to healthcare careers.",
+          "text_two_three": "You will also benefit from the opportunity to be featured as a vendor on our social media for no additional cost to you. We want all of our vendors to be successful and feel a part of the Medico Lifestyle community.\n\nYou will also receive our newsletter specifically for vendors giving you tips for selling and keeping you up to date about any upgrades to the site.",
+          "title_three": "Products",
+          "text_three_one": "We do not have specific requirements for what is eligible to be sold on our website. If you feel like you are part of our community of healthcare people or you are selling something unique you think would have a place here then we would love to see it!",
+          "text_three_two": "",
+          "text_three_three": ""
+        }
+      },
+      "blogHero": {
+        "type": "blogHero",
+        "settings": {
+          "blog_title": "Blog",
+          "blog_text_one": "Welcome to our blog a place for us to share our stories and those from our community. Whatever your background we think you’ll find something that interests you.",
+          "blog_text_two": "Go on and have a good read."
+        }
+      },
+      "blogTopics": {
+        "type": "blogTopics",
+        "settings": {
+          "topics_title": "Featured topics"
+        }
+      },
+      "blogPosts": {
+        "type": "blogPosts",
+        "settings": {}
+      },
+      "podcastHero": {
+        "type": "podcastHero",
+        "settings": {
+          "pod_title": "Podcasts",
+          "pod_text_one": "We tackle tough medical topics and welcome guests to talk about their work in the world of healthcare and beyond.",
+          "pod_text_two": "In our clinical episodes we discuss details of clinical cases including anatomy, physiology, management and pharmacology. In our interview episodes we talk to a lovely healthcare person doing something a little different in the world of healthcare."
+        }
+      },
+      "podcastTopics": {
+        "type": "podcastTopics",
+        "settings": {
+          "topics_title": "Featured topics"
+        }
+      },
+      "podcastPosts": {
+        "type": "podcastPosts",
+        "settings": {}
+      },
+      "aboutHero": {
+        "type": "aboutHero",
+        "settings": {
+          "about_title": "Who are we?",
+          "about_text_one": "We are Emily and Jonas the husband and wife team behind Medico Lifestyle. Emily is a graduate Medical student with a BSc in Medical Biology. Her journey to medical school wasn’t straight forward giving her loads of experience in different work, and applications. She is currently in her clinical years studying in London. Jonas is a Foundation Year 2 doctor in the South East. He is an aspiring Anaesthetist and Intensive Care doctor. Over the past year he has worked in Intensive care throughout the Coronavirus Pandemic and in different hospital and community specialties.",
+          "about_text_two": "When we are not studying or working we love the outdoors. We enjoy cycling, walking and have even started some outdoor swimming. Any activity is good as long as it finishes up in a cup of tea and some cake.",
+          "about_text_three": ""
+        }
+      },
+      "aboutHow": {
+        "type": "aboutHow",
+        "settings": {
+          "about_title": "What is Medico Lifestyle?",
+          "about_text_one": "We started Medico Lifestyle to create a community of creative people with links to healthcare. We want to bring in people from all different areas who are passionate about what they do. We have always felt that working in medicine connects us to people globally with the shared aim of better health for all. We also know lots of people have many skills outside their ‘day job’. We wanted to combine this by creating a platform that can showcase people’s creativity, educate, and support charities which share our values.",
+          "about_text_two": "",
+          "about_text_three": ""
+        }
+      },
+      "aboutQuote": {
+        "type": "aboutQuote",
+        "settings": {
+          "quote": "We want to create a platform that can showcase people’s creativity, educate, and support charities which share our values."
+        }
+      },
+      "aboutCharity": {
+        "type": "aboutCharity",
+        "settings": {
+          "title": "Charities we’ve partnered with"
+        }
+      },
+      "collectionItems": {
+        "type": "collectionItems",
+        "settings": {}
+      },
+      "collection_hero": {
+        "type": "collection_hero",
+        "blocks": {
+          "2514c568-b8bd-4efb-994b-9bcb2ed7396e": {
+            "type": "collection",
+            "settings": {
+              "collection_handle": "gifts",
+              "title_1": "Wearable",
+              "handle_1": "wearable",
+              "image_1": "shopify:\/\/shop_images\/3fe9e529050facfd0e0bbc293bad38dc.png",
+              "title_2": "Edible",
+              "handle_2": "edible",
+              "image_2": "shopify:\/\/shop_images\/1b0a2545eb6d65f9869efe188474559b.png",
+              "title_3": "Fun",
+              "handle_3": "fun",
+              "image_3": "shopify:\/\/shop_images\/61415517ca2959743fc7955e5842ee51.png"
+            }
+          },
+          "d17781af-5a12-4a4d-8c00-50e62da87324": {
+            "type": "collection",
+            "settings": {
+              "collection_handle": "study",
+              "title_1": "Educational",
+              "handle_1": "educational",
+              "image_1": "shopify:\/\/shop_images\/ccaf490f1f40facb1d5db7f85e81ca36.png",
+              "title_2": "Organisation",
+              "handle_2": "organisation",
+              "image_2": "shopify:\/\/shop_images\/32e951f967b826e167161114cc6261e9.png",
+              "title_3": "Notebooks",
+              "handle_3": "notebooks",
+              "image_3": "shopify:\/\/shop_images\/d0b48446f8d5aff2816f6c9bfddcbe55.png"
+            }
+          },
+          "018178e7-8b31-4769-93da-ea254f3f5c2b": {
+            "type": "collection",
+            "settings": {
+              "collection_handle": "stationery",
+              "title_1": "Pens",
+              "handle_1": "pens",
+              "image_1": "shopify:\/\/shop_images\/8d34e77f74ca88076cee07c89e24cafd.jpg",
+              "title_2": "Notebooks",
+              "handle_2": "notebooks",
+              "image_2": "shopify:\/\/shop_images\/d0b48446f8d5aff2816f6c9bfddcbe55_1.png",
+              "title_3": "Pencil Cases",
+              "handle_3": "pencil-cases",
+              "image_3": "shopify:\/\/shop_images\/77495c1f6b798c8d85bd2b4fa32cbe49.jpg"
+            }
+          },
+          "8d832864-4df5-4dc0-9b43-87bf88a19c6f": {
+            "type": "collection",
+            "settings": {
+              "collection_handle": "home",
+              "title_1": "Art",
+              "handle_1": "art",
+              "image_1": "shopify:\/\/shop_images\/650964ca29fd7a3112115ae4d626092a.png",
+              "title_2": "Mugs",
+              "handle_2": "mugs",
+              "image_2": "shopify:\/\/shop_images\/95b34bd8c665870597a5c51bfd9d4f14.png",
+              "title_3": "Bags",
+              "handle_3": "bags",
+              "image_3": "shopify:\/\/shop_images\/5e03736933744e41ce256ef451b26b80.png"
+            }
+          }
+        },
+        "block_order": [
+          "2514c568-b8bd-4efb-994b-9bcb2ed7396e",
+          "d17781af-5a12-4a4d-8c00-50e62da87324",
+          "018178e7-8b31-4769-93da-ea254f3f5c2b",
+          "8d832864-4df5-4dc0-9b43-87bf88a19c6f"
+        ],
+        "settings": {}
+      },
+      "miscFAQHeader": {
+        "type": "miscFAQHeader",
+        "settings": {}
+      },
+      "miscFAQ": {
+        "type": "miscFAQ",
+        "blocks": {
+          "2778c542-5b3c-455a-a8e9-eeba9d681690": {
+            "type": "text",
+            "settings": {
+              "faq_question": "What is Medico Lifestyle?",
+              "faq_answer": "Medico Lifestyle is an online community with a marketplace platform allowing Vendors from our community to open up shops to sell their amazing products."
+            }
+          },
+          "c3815d92-3871-494f-a9fd-f1a9678c9393": {
+            "type": "text",
+            "settings": {
+              "faq_question": "How does the Medico Marketplace work?",
+              "faq_answer": "We invite vendors to join our marketplace, add their products and then sell to our community of healthcare people. Anyone can join if they create something we feel our community would love."
+            }
+          },
+          "27cbc942-870d-4947-bc0c-2d9c1413f3ad": {
+            "type": "text",
+            "settings": {
+              "faq_question": "Returns & Refunds",
+              "faq_answer": "Our marketplace sells products from a collection of different vendors. If the product you’ve bought isn’t what you were expecting or is faulty in some way please contact the vendor themselves directly. You have 14 days from receiving the item to contact the vendor to arrange a return. Some items may not be returnable for hygiene reasons such as earrings etc. If you require a refund the vendor will contact us to arrange this."
+            }
+          },
+          "24aa0a7e-0f41-43dc-9723-f425be92d1e3": {
+            "type": "text",
+            "settings": {
+              "faq_question": "Where do we deliver to?",
+              "faq_answer": "Any products sold by Medico Lifestyle are delivered worldwide but each vendor may have different places they will send to. It’s always best to check when you put in your address at checkout."
+            }
+          },
+          "a2c5e0bb-aa89-4e58-8ca8-9025d298b4f6": {
+            "type": "text",
+            "settings": {
+              "faq_question": "I have a question about a specific product",
+              "faq_answer": "If you want to know any more info about a specific product just ask. You can contact us via our contact form, emailing us or by finding us on Instagram and sending us a message. We will do our best to answer as soon as possible."
+            }
+          }
+        },
+        "block_order": [
+          "2778c542-5b3c-455a-a8e9-eeba9d681690",
+          "c3815d92-3871-494f-a9fd-f1a9678c9393",
+          "27cbc942-870d-4947-bc0c-2d9c1413f3ad",
+          "24aa0a7e-0f41-43dc-9723-f425be92d1e3",
+          "a2c5e0bb-aa89-4e58-8ca8-9025d298b4f6"
+        ],
+        "settings": {}
+      },
+      "miscContactForm": {
+        "type": "miscContactForm",
+        "settings": {}
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+          "show_share_buttons": true
+        }
+      },
+      "productMore": {
+        "type": "productMore",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  },
+  "presets": {
+    "Default": {}
+  }
+}

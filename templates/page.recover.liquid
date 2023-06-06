@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="recoverPage">
+        <div class="recoverPage__content">
+            <h2 class="recoverPage__heading">Password recovery</h2>
+            <p class="recoverPage__body">On completion of this form, an email will be sent to your address, detailing how to reset your password.</p>
+            {% form 'recover_customer_password' %}
+                <input class="recoverPage__input" id="user_email" name="email" required placeholder="Email address" type="email"/>
+                <button class="recoverPage__button" type="submit">Submit</button>
+            {% endform %}
+        </div>
+    </div>
+</div>

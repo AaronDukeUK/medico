@@ -1,0 +1,69 @@
+@import "../variables"
+
+.blogComments
+    position: relative
+    margin: 66px 0 113px 0
+    @media only screen and (max-width: 900px)
+        margin: 48px 0 64px 0
+    @media only screen and (max-width: 600px)
+        margin-top: 42px 0 58px 0
+    &__heading
+        color: $mediBlue
+        margin-bottom: 45px
+        @media only screen and (max-width: 900px)
+            margin-bottom: 29px
+        @media only screen and (max-width: 600px)
+            margin-bottom: 18px
+    &__comment
+        background: $mediGrey
+        color: $mediDarkGrey
+        padding: 13px
+        margin-bottom: 19px
+    &__info
+        margin-bottom: 10px
+    &__name
+        color: $mediBlue
+        font-weight: bold
+
+    &__form
+        max-width: 454px
+        margin-top: 50px
+        form
+            width: 100%
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            justify-content: center
+
+    &__input
+        width: 100%
+        min-height: 33px
+        background: $mediGrey
+        border: none
+        padding: 12px
+        margin-bottom: 11px
+        color: $mediDarkGrey
+        font-family: $pFF
+        font-size: $pFS
+        &::placeholder
+            color: $mediBlue
+            opacity: 0.47
+            font-family: $pFF
+            font-size: $pFS
+        &--text
+            height: 110px
+    &__button
+        background: $mediBlue
+        color: $mediWhite
+        transition: all 0.15s ease-in-out
+        border: 1px solid $mediBlue
+        &:hover
+            color: $mediBlue
+            background: $mediWhite
+
+    &__success
+        padding: 10px 20px
+        background: $mediOrange
+        margin: 0 0 10px 0
+        p
+            color: $mediWhite

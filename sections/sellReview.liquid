@@ -1,0 +1,45 @@
+<div class="container">
+    <section class="sellReview" data-aos="fade-up">
+        <div class="sellReview__image" data-aos-delay="100" data-aos="fade-up">
+             {% if section.settings.sell_image != blank %}
+                {{ section.settings.sell_image | img_url: '1000x' | img_tag }}
+            {% else %}
+            {{ "Sell-Review.png" | asset_url | img_tag: "Review" }}
+            {% endif %}
+        </div>
+        <div class="sellReview__content">
+            <h2 class="sellReview__heading" data-aos-delay="200" data-aos="fade-up">
+                {{section.settings.text}}
+            </h2>
+            <p class="sellReview__body" data-aos-delay="300" data-aos="fade-up">
+                {{section.settings.name}}
+            </p>
+        </div>
+
+    </section>
+</div>
+
+{% schema %}
+
+{
+"name": "Sell Review",
+"settings": [
+  {
+    "type": "textarea",
+    "id": "text",
+    "label": "Text",
+    "default": "“Through Medico, I’ve been able to share my handmade pins and the community is so lovely and supportive.”"
+  }, {
+    "type": "text",
+    "id": "name",
+    "label": "Name",
+    "default": "Georgia Pinkton"
+  }, {
+    "type": "image_picker",
+    "id": "sell_image",
+    "label": "Image"
+  }
+]
+}
+
+{% endschema %}

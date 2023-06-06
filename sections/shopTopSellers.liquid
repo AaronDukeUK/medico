@@ -1,0 +1,56 @@
+<div class="container">
+    <section class="shopTopSellers">
+        <div class="shopTopSellers__headingContainer">
+            <h2 class="shopTopSellers__heading" data-aos="fade-up">Top Sellers</h2>
+        </div>
+        <div class="shopTopSellers__container">
+            {% for block in section.blocks %}
+                <a href="/pages/vendor/{{block.settings.seller_username}}">
+                    <article class="shopTopSellers__seller" data-aos-delay="50" data-aos="fade-up">
+                        <div class="shopTopSellers__image">
+                            <img src="{{ block.settings.seller_image | img_url: '400x' }}">
+                        </div>
+                        <h3 class="shopTopSellers__vendor">{{block.settings.seller_name}}</h3>
+                        <p class="shopTopSellers__location">
+                            {% include 'miscLocationMarker' %}
+                            {{block.settings.seller_location}}
+                        </p>
+                    </article>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% schema %}
+{
+    "name": "Top sellers",
+    "blocks": [
+        {
+            "name": "Top seller",
+            "type": "top_seller",
+            "settings": [
+                {
+                    "type": "text",
+                    "label": "Seller name",
+                    "id": "seller_name"
+                },
+                {
+                    "type": "text",
+                    "label": "Seller username",
+                    "id": "seller_username"
+                },
+                {
+                    "type": "image_picker",
+                    "label": "Seller image",
+                    "id": "seller_image"
+                },
+                {
+                    "type": "text",
+                    "label": "Seller location",
+                    "id": "seller_location"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

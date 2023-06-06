@@ -1,0 +1,33 @@
+@import "../variables"
+@import "../breakpoints"
+
+.sellhow
+    display: flex
+    align-items: stretch
+    justify-content: space-between
+    flex-direction: column
+    margin: 33px 0 61px 0
+    @include md
+        flex-direction: row
+        margin: 55px 0 80px 0
+    @include lg
+        margin: 95px 0 80px 0
+    &__content
+        @include md
+            flex: 1
+            margin: 0 50px 0 0
+    &__heading
+        color: $mediBlue
+        margin-bottom: 24px
+        @media only screen and (max-width: 730px)
+            margin-bottom: 20px
+    &__body
+        color: $mediDarkGrey
+        margin: 20px 0
+    &__image
+        @include md
+            width: 45%
+        img
+            width: 100%
+            height: auto
+            object-fit: cover

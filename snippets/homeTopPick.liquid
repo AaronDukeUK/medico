@@ -1,0 +1,12 @@
+<article data-aos="fade-up" data-aos-delay="{{ index | times: 50 }}" class="product">
+    {% include 'miscBestsellerIcon' %}
+    <a href="{{ item.url | within: collection }}">
+        <div class="product__image"><img src="{{ item.featured_image.src | img_url: '534x' }}" alt="{{ item.featured_image.alt | escape }}"/></div>
+        <h3 class="product__title">{{ item.title }}</h3>
+        <p class="product__price">{{ item.price | money }}</p>
+        <p class="product__soldby">
+            <span>Sold by</span>
+            <span>{{ item.vendor }}</span>
+        </p>
+    </a>
+</article>

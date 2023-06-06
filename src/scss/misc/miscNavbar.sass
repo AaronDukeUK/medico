@@ -1,0 +1,228 @@
+@import "../variables"
+@import "../breakpoints"
+
+.miscNavbar
+    height: 60px
+    width: 100%
+
+    &__container
+        display: flex
+        align-items: center
+        justify-content: space-between
+        @media only screen and (max-width: 900px)
+            justify-content: flex-end
+
+    &__logoContainer
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        color: $mediOrange
+        flex-grow: 1
+
+        h3
+            font-size: 16px
+            display: inline-block
+            @media only screen and (max-width: 750px)
+                font-size: 14px
+
+    &__logo
+        display: inline-block
+        width: 34px
+        height: 34px
+        background-image: url('../../images/Logo.png')
+        background-position: center
+        background-size: contain
+        margin-right: 12px
+
+    &__linkgroup
+        display: flex
+        align-items: center
+        position: relative
+        @media only screen and (max-width: 750px)
+            display: none
+
+    &__link
+        font-family: $navFF
+        font-size: $navFS
+        line-height: $navLH
+        font-weight: $navFW
+        color: $mediBlue
+        margin-left: 50px
+        transition: all 0.15s ease-in-out
+        &:hover
+            opacity: 0.5
+        &:first-child
+            margin-left: 0
+        @include lg
+            font-size: $navFSL
+    &__accountLink
+        display: flex
+        align-items: center
+        svg
+            margin-right: 10px
+            margin-bottom: 2px
+    &__accountLink:hover + &__accountDropdownContainer
+        opacity: 1
+        pointer-events: all
+    &__accountDropdownContainer:hover
+        opacity: 1
+        pointer-events: all
+    &__accountDropdownContainer
+        position: absolute
+        top: 20px
+        padding-top: 20px
+        right: 0
+        opacity: 0
+        pointer-events: none
+        transition: opacity 0.1s ease-out
+    &__accountDropdown
+        background: white
+        border: 1px solid $mediBlue
+        position: relative
+        &:before
+            content:""
+            position: absolute
+            right: 11px
+            top: -10px
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 0 10px 10px 10px
+            border-color: transparent transparent white transparent
+            z-index:9999
+        &:after
+            content:""
+            position: absolute
+            right: 9px
+            top: -11px
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 0 12px 12px 12px
+            border-color: transparent transparent $mediBlue transparent
+            z-index:9997
+
+        li
+            position: relative
+            z-index: 9998
+            background: white
+            a
+                display: block
+                padding: 16px 20px 0 20px
+                font-family: $navFF
+                font-size: $navFS
+                color: $mediBlue
+                font-weight: $navFW
+                text-align: right
+                &:hover
+                    opacity: 0.5
+            &:last-child a
+                padding: 16px 20px
+
+    &__burger
+        display: none
+        position: fixed
+        right: 9px
+        height: 40px
+        width: 47px
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        cursor: pointer
+        z-index: 101
+        background: $mediWhite
+        padding: 10px
+        border-radius: 5px
+        @media only screen and (max-width: 750px)
+            display: flex
+        div
+            height: 3px
+            width: 100%
+            background: $mediBlue
+            transition: all 0.15s ease-in
+            position: relative
+            transform-origin: 1px
+
+    .clicked
+        div
+            &:nth-child(1)
+                transform: rotate(45deg)
+            &:nth-child(2)
+                opacity: 0
+                transform: translateX(20px)
+            &:nth-child(3)
+                transform: rotate(-45deg)
+
+.mobileMenu
+    background: $mediWhite
+    position: fixed
+    top: 0
+    padding: 0 15px 30px 15px
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+    overflow: hidden
+    z-index: 100
+    pointer-events: none
+    overflow-y: scroll
+
+    &__logoContainer
+        display: flex
+        align-items: center
+        align-self: flex-start
+        justify-content: flex-start
+        color: $mediOrange
+        margin: 13px 0 35px 0
+        h3
+            display: inline-block
+            font-size: 14px
+
+    &__logo
+        display: inline-block
+        width: 34px
+        height: 34px
+        background-image: url('../../images/Logo.png')
+        background-position: center
+        background-size: contain
+        margin-right: 12px
+
+    &__shopGroup
+        overflow: hidden
+        max-height: 0px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        transition: all 0.15s ease-in-out
+        &--open
+            max-height: 500px
+            margin-bottom: 20px
+
+    &__link
+        font-family: $navFF
+        font-weight: $navFW
+        color: $mediBlue
+        font-size: 23px
+        line-height: 46px
+        margin-bottom: 7px
+        span
+            padding-left: 5px
+            padding-right: 5px
+            position: relative
+            top: -2px
+        &--smaller
+            font-size: 18px
+            line-height: 26px
+
+    #shopButton
+        span
+            display: inline-block
+            transition: all 0.15s ease-in-out
+            margin-left: 10px
+            transform: translateY(-3px)
+    #shopButton
+        .switched
+            transform: scaleY(-1)

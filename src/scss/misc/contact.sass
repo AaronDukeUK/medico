@@ -1,0 +1,73 @@
+@import "../variables"
+
+.contact
+    margin-bottom: 169px
+    padding: 90px 5px
+    background: $mediBlue
+    border: 15px solid $mediPink
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    @media only screen and (max-width: 500px)
+        padding: 45px 5px
+        margin-bottom: 80px
+    &__error
+        padding: 10px 20px
+        background: $mediOrange
+        text-align: center
+        margin-bottom: 20px
+        p
+            color: $mediWhite
+
+    &__success
+        padding: 10px 20px
+        background: $mediWhite
+        text-align: center
+        margin-bottom: 20px
+        p
+            color: $mediBlue
+
+    &__body
+        color: $mediWhite
+        margin: 20px 0 40px 0
+        text-align: center
+
+    form
+        width: 95%
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+
+    &__input
+        width: 376px
+        height: 33px
+        margin-bottom: 10px
+        background: $mediWhite
+        border: none
+        padding: 12px
+        color: $mediDarkGrey
+        font-family: $pFF
+        font-size: $pFS
+        @media only screen and (max-width: 500px)
+            width: 100%
+        &::placeholder
+            color: $mediBlue
+            opacity: 0.47
+            font-family: $pFF
+            font-size: $pFS
+        &:last-child
+            margin: 0
+        &--large
+            height: 123px
+
+    &__button
+        background: $mediWhite
+        color: $mediBlue
+        width: 132px
+        transition: all 0.15s ease-in-out
+        border: 1px solid $mediWhite
+        &:hover
+            color: $mediWhite
+            background: $mediBlue

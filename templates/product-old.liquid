@@ -1,0 +1,194 @@
+{% layout 'shopTheme' %}
+<div class="container">
+  <section class="productListing">
+
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+    <div class="productListing__images">
+
+      <img class="productListing__heroImage" src="{{ featured_image | img_url: '940x' }}"
+        alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" />
+
+      <div class="productListing__altImages">
+
+        {% for image in product.images %}
+        {% assign current_image = image.src | img_url: "940x" %}
+        <a class="productListing__imageA">
+          <img class="productListing__image" src="{{image.src | img_url: "320x"}}" alt="{{ image.alt | escape }}"
+            onclick="changeImage('{{ current_image }}');" />
+        </a>
+        {% endfor%}
+
+      </div>
+    </div>
+
+    <div class="productListing__details">
+      <h2 class="productListing__heading">{{ product.title }}</h2>
+
+      <p class="productListing__soldBy">
+        Sold by
+        <a href="/pages/vendor/{{ product.vendor }}">
+        <span class="productListing__vendor">{{ product.vendor }}</span>
+        </a>
+      </p>
+
+      <p class="productListing__price">
+        {{ product.price | money }}
+      </p>
+
+      {%unless product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      <div class="productListing__line"></div>
+      {% endunless %}
+
+      {% form "product", product %}
+      {% assign hide_default_title = false %}
+      {%if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      {% assign hide_default_title = true %}
+      {% endif %}
+
+      <div class="productListing__variantContainer">
+
+
+        {%- for variant in product.variants -%}
+        {% comment %} {% for option in product.options %}
+
+        {% if option contains 'Colour' %}
+
+        <div class="productListing__variant productListing__variant--color" {% if hide_default_title %}
+          style="display: none" {% endif %}>
+          <input class="productListing__variantInput productListing__variantInput--color" type="radio" name="id"
+            value="{{ variant.id }}" id="variant-option-{{ variant.id }}" {% unless variant.available %} disabled
+            {% endunless %} {% if product.selected_variant.id == variant.id %} checked {% endif %}>
+          <label id="varaint" class="productListing__variantInputLabel--color" for="variant-option-{{ variant.id }}">
+
+            <div id="colorBox" class="productListing__variantColor">
+              {% if variant.title contains '/' + '/' %}
+              <div id="colorBoxTwo" class="productListing__variantColorTwo"></div>
+              {% endif %}
+            </div>
+            <p id="colorTitle" class="productListing__variantColorTitle"></p>
+          </label>
+          <span id="hiddenTitle">{{ variant.title }}</span>
+        </div>
+
+        {% else %} {% endcomment %}
+
+          <div class="productListing__variant" {% if hide_default_title %} style="display: none" {% endif %}>
+            <input class="productListing__variantInput" type="radio" name="id" value="{{ variant.id }}"
+              id="variant-option-{{ variant.id }}" {% unless variant.available %} disabled {% endunless %}
+              {% if product.selected_variant.id == variant.id %} checked {% endif %}
+              {% if product.variants.size == 1 %} checked {% endif %}>
+            <label id="varaint" class="variantInputLabel" for="variant-option-{{ variant.id }}" {% unless variant.available %} style="pointer-events: none;" {% endunless %}>
+              {{ variant.title }}
+            </label>
+          </div>
+
+        {% comment %} {% endif %} {% endcomment %}
+        {% comment %} {% endfor %} {% endcomment %}
+        {%- endfor -%}
+
+      </div>
+      <div class="productListing__line"></div>
+      <div class="productListing__inputAndCartContainer">
+        <div class="productListing__input">
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown(); return false">
+            {% include 'miscInputDownArrow' %}
+          </button>
+          <input id="Quantity" min="1" name="quantity" type="number" value="1" />
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); return false">
+            {% include 'miscInputUpArrow' %}
+          </button>
+        
+        </div>
+        <button id="addToCart" class="productListing__addToCart" type="submit">
+          Add to cart {% include 'miscCartIcon' %}
+        </button>
+        <!-- include 'wishlist-button-product' with '{{ product.id }}' -->
+      </div>
+      {% endform %}
+
+      <div class="productListing__line"></div>
+
+      <h3 class="productListing__detailsHeading">Details</h3>
+      <div class="productListing__description">{{ product.description }}</div>
+    </div>
+  </section>
+  <div class="productListing__reviews" id="shopify-product-reviews" data-id="{{ product.id }}">
+    {{ product.metafields.spr.reviews }}
+  </div>
+</div>
+
+{% section 'productMore' %}
+
+<script>
+  const altImage = document.querySelector(".productListing__imageA");
+  altImage.classList.add("active");
+
+  changeImage = (image) => {
+    document.getElementById("ProductPhotoImg").src = image;
+  }
+
+  let images = Array.from(document.querySelectorAll('.productListing__imageA'));
+  let boxes = Array.from(document.querySelectorAll('#colorBox'));
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    images.forEach(node => {
+      node.classList.remove('active');
+    });
+    e.currentTarget.classList.add('active');
+  }
+  images.forEach(node => {
+    node.addEventListener('click', handleClick)
+  });
+
+  const handleClickColour = (e) => {
+    boxes.forEach(node => {
+      node.classList.remove('activeColour');
+    });
+    e.currentTarget.classList.add('activeColour');
+  }
+  boxes.forEach(node => {
+    node.addEventListener('click', handleClickColour)
+  });
+
+  const allHidden = Array.from(document.querySelectorAll('#hiddenTitle'));
+  const hidden = Array.from(document.querySelectorAll('#hiddenTitle'));
+  const box = Array.from(document.querySelectorAll('#colorBox'));
+  const boxTwo = Array.from(document.querySelectorAll('#colorBoxTwo'));
+  const title = Array.from(document.querySelectorAll('#colorTitle'));
+  let counter = 0
+  let hiddenTitles = [];
+  for (let i = 0; i < allHidden.length; i++) {
+    hiddenTitles.push(allHidden[i].innerHTML);
+  }
+
+  for (let i = 0; i < box.length; i++) {
+    let split = hiddenTitles[i].split("/");
+    title[i].innerHTML = split[0];
+    box[i].style.backgroundColor = split[1];
+    if (split.length == 3) {
+      boxTwo[i].style.backgroundColor = split[2];
+    }
+  }
+</script>
+
+{%unless hide_default_title %}
+<script>
+  const button = document.getElementById('addToCart')
+  const defaultValue = button.innerHTML;
+  const varaints = Array.from(document.querySelectorAll('#varaint'));
+  button.innerHTML="Choose an option"
+  button.disabled = true
+
+  const handleVariantClick = (e) => {
+    button.innerHTML = defaultValue;
+    button.removeAttribute("disabled")
+  }
+
+  varaints.forEach(node => {
+    node.addEventListener('click', handleVariantClick)
+  });
+</script>
+{% endunless %}

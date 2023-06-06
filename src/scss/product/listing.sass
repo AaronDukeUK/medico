@@ -1,0 +1,431 @@
+@import "../variables"
+@import "../breakpoints"
+
+.productListing
+    padding: 47px 0 0 0
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    @media only screen and (max-width: 950px)
+        flex-direction: column
+        align-items: center
+        padding: 35px 0 0 0
+    @media only screen and (max-width: 650px)
+        padding: 25px 0 0 0
+    &__images
+        width: 45%
+        @media only screen and (max-width: 950px)
+            max-width: 100%
+            width: 100%
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+    &__heroImage
+        width: 100%
+        height: 455px
+        object-fit: cover
+        @media only screen and (max-width: 950px)
+            height: 467px
+            width: 467px
+        @media only screen and (max-width: 650px)
+            width: 100%
+    &__altImages
+        margin-top: 12px
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-rows: 1fr
+        grid-column-gap: 13px
+        grid-row-gap: 13px
+        @media only screen and (max-width: 950px)
+            margin-top: 32px
+            width: 100%
+        @media only screen and (max-width: 650px)
+            margin-top: 13px
+    &__imageA
+        opacity: 0.5
+        font-size: 0
+        line-height: 0
+        border: 2px solid $mediWhite
+        cursor: pointer
+        transition: all 0.15s ease-in-out
+    .active
+        border: 2px solid $mediBlue
+        opacity: 1
+    &__image
+        width: 100%
+        height: 102px
+        object-fit: cover
+        @media only screen and (max-width: 950px)
+            height: 162px
+        @media only screen and (max-width: 750px)
+            height: 102px
+        @media only screen and (max-width: 550px)
+            height: 66px
+    &__details
+        // max-width: 376px
+        margin-left: 50px
+        flex: 1
+        @media only screen and (max-width: 950px)
+            margin-left: 0
+            max-width: 100%
+    &__heading
+        color: $mediBlue
+        @media only screen and (max-width: 950px)
+            margin-top: 47px
+        @media only screen and (max-width: 650px)
+            margin-top: 18px
+    &__soldBy
+        margin: 2px 0 24px 0
+        @media only screen and (max-width: 950px)
+            margin: 12px 0
+        @media only screen and (max-width: 650px)
+            margin: 10px 0
+    &__vendor
+        color: $mediBlue
+        font-weight: bold
+    &__price
+        font-family: 'Sofia Pro'
+        font-weight: 900
+        font-size: 29px
+    &__line
+        height: 1px
+        width: 100%
+        background: $mediLightGrey
+        margin: 25px 0
+    &__optionContainer
+        margin-bottom: 10px
+        &:last-child
+            margin-bottom: 0
+    &__optionName
+        font-weight: 700
+        color: $mediDarkGrey
+        margin-bottom: 5px
+    
+    &__options
+        display: flex
+        align-items: center
+        justify-content: flex-start
+    &__option
+        // position: relative
+        // height: 40px
+        // margin-right: 18px
+        &--color
+            // margin-top: -10px
+
+    &__variantInputLabel--color
+        &:hover, &:checked
+            .productListing__variantColorTitle
+                opacity: 1
+    &__variantColor
+        overflow: hidden
+        position: relative
+        width: 29px
+        height: 30px
+        border: 2px solid $mediWhite
+        cursor: pointer
+
+    &__variantColorTwo
+        display: block
+        width: 29px
+        height: 40px
+        cursor: pointer
+        position: absolute
+        transform: rotate(-45deg)
+        bottom: -17px
+        left: -12px
+
+    &__variantColorTitle
+        font-size: 10px
+        text-align: center
+        position: absolute
+        bottom: -10px
+        left: -35px
+        display: block
+        width: 100px
+        line-height: 15px
+        opacity: 0
+        transition: all 0.15s ease-in-out
+
+    .activeColour
+        outline: 1px solid $mediDarkGrey
+    #hiddenTitle
+        display: none
+    &__variant:last-child
+        margin-right: 0
+    &__variantInput
+        display: none
+    &__variantInput + .variantInputLabel
+        display: block
+        background-color: $mediWhite
+        padding: 10px 18px
+        border: 1px solid $mediDarkGrey
+        transition: all 0.15s ease-in-out
+        font-family: 'Apercu'
+        font-size: 14px
+        cursor: pointer
+        margin-right: 5px
+    &__variantInput:checked + .variantInputLabel
+        border: 1px solid $mediOrange
+        color: $mediOrange
+    &__variantInput[disabled] + .variantInputLabel
+        opacity: 0.5
+
+    &__inputAndCartContainer
+        display: flex
+        align-items: center
+        justify-content: center
+        @media only screen and (max-width: 950px)
+            justify-content: flex-start
+    &__addToCart
+        height: 40px
+        flex-grow: 1
+        background: $mediOrange
+        border: 1px solid $mediOrange
+        transition: all 0.15s ease-in-out
+        &:hover
+            background: white
+            color: $mediOrange
+            svg
+                path
+                    fill: $mediOrange
+        &:disabled
+            opacity: 0.8
+            background: $mediOrange
+            color: $mediWhite
+        @media only screen and (max-width: 950px)
+            max-width: 239px
+        svg
+            margin: 0 0 -3px 14px
+            path
+                transition: all 0.15s ease-in-out
+
+    .wishlist-btn
+        line-height: 15px
+        margin-left: 17px
+        height: 39px
+        display: flex
+        align-items: center
+        justify-content: center
+
+    &__input
+        margin-right: 17px
+        width: 84px
+        height: 39px
+        border: 1px solid $mediDarkGrey
+        color: $mediDarkGrey
+        display: inline-flex
+        input
+            border: none
+            color: $mediDarkGrey
+            width: 20px
+            text-align: center
+            background: transparent
+        input[type="number"]
+            -webkit-appearance: textfield
+            -moz-appearance: textfield
+            appearance: textfield
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
+            -webkit-appearance: none
+        button
+            position: relative
+            width: 40px
+            height: 100%
+            padding: 0
+            margin: 0
+            border: none
+            align-items: center
+            justify-content: center
+    &__detailsHeading
+        color: $mediBlue
+        margin: 0 0 10px 0
+    &__description
+        font-family: $pFF
+        font-size: $pFS
+        line-height: $pLH
+        color: $mediDarkGrey
+        @include md
+            font-size: $pFS_lg
+        p
+            margin: 0 0 1em
+        ul
+            list-style: disc
+            li
+                margin-left: 40px
+        ol
+            list-style: decimal
+            li
+                margin-left: 40px
+        strong
+            font-weight: 700
+        
+
+    #shopify-product-reviews
+        margin: 0
+
+    &__reviews
+        position: relative
+        width: 455px
+        @media only screen and (max-width: 950px)
+            width: 100%
+
+        .spr-container
+            border: none
+            padding: 0
+            margin: 0
+
+        // Customer Reviews Header
+        .spr-header-title
+            display: none
+
+        // Total reviews, star ratings & write a review
+        .spr-summary
+            position: relative
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            font-family: 'Sofia Pro'
+            font-size: 18px
+            font-weight: bold
+            line-height: 21px
+            .spr-summary-starrating
+                order: 1
+                margin-right: 10px
+            .spr-summary-caption
+                order: 0
+                color: $mediDarkGrey
+                padding-right: 10px
+                line-height: 1
+            .spr-summary-actions
+                border-left: 1px solid $mediLightGrey
+                padding-left: 10px
+                order: 2
+                a
+                    color: $mediBlue
+                    transition: all 0.15s ease-in-out
+                    font-size: 18px
+                    font-family: "Sofia Pro", sans-serif
+                    line-height: 1
+                    &:hover
+                        opacity: 0.5
+
+        // Total reviews
+        .spr-header
+            color: $mediBlue
+            margin-bottom: 23px
+
+        // Write a review
+
+        // Star Icons
+        .spr-icon, .spr-icon-star
+            font-size: 80%
+
+        .spr-review-header
+            display: flex
+            align-items: center
+            justify-content: flex-end
+            flex-direction: row-reverse
+            margin: 0 0 10px 0
+
+        .spr-review-header-title
+            display: none
+
+        .spr-review-header-byline
+            margin: 0 20px 0 0
+            font-family: 'Apercu'
+            font-size: 16px
+            font-style: normal
+            opacity: 1
+            strong:first-child
+                color: $mediBlue
+                font-weight: bold
+
+        .spr-starratings, .spr-review-header-starratings
+            margin: 0
+
+        a.spr-icon:hover
+            color: #ff7d19
+
+        .spr-review
+            background: $mediGrey
+            color: $mediDarkGrey
+            padding: 13px 13px 13px 13px
+            margin: 0 0 19px 0
+        .spr-review:first-child
+            margin-top: 0
+        .spr-review:last-child
+            padding-bottom: 13px
+
+        .spr-review-content
+            margin: 0
+
+        .spr-review-content-body
+            font-size: 16px
+            line-height: 22px
+
+        .spr-review-footer
+            display: none
+
+        .spr-form-title
+            color: $mediBlue
+            margin-bottom: 12px
+
+        .spr-form-message, .spr-form-label
+            color: $mediBlue
+            font-family: 'Apercu'
+            font-size: 16px
+            line-height: 22px
+
+        .spr-form-label
+            display: none
+
+        input, textarea
+            color: $mediBlue
+            width: 100%
+            min-height: 33px
+            background: $mediGrey
+            border: none
+            padding: 12px
+            margin-bottom: 11px
+            color: $mediBlue
+            font-family: $pFF
+            font-size: $pFS
+            &::placeholder
+                color: $mediBlue
+                opacity: 0.47
+                font-family: $pFF
+                font-size: $pFS
+        .spr-button
+            background: $mediBlue
+            color: $mediWhite
+            cursor: pointer
+            transition: all 0.15s ease-in-out
+            border: 1px solid $mediBlue
+            &:hover
+                color: $mediBlue
+                background: $mediWhite
+
+        .spr-form-message-error
+            color: $mediWhite
+
+        .spr-pagination
+            border: none
+            >div
+                display: flex
+                align-items: center
+                justify-content: center
+            span, a
+                display: inline-block
+                color: $mediDarkGrey
+                font-family: $pFF
+                font-size: $pFS
+                line-height: $pLH
+                margin-right: 10px
+            .spr-pagination-page
+                margin-right: 10px
+                opacity: 0.5
+            .is-active
+                border: 1px solid $mediDarkGrey
+                margin-right: 15px
+                padding: 5px 15px
+                opacity: 1

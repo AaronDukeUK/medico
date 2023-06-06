@@ -1,0 +1,97 @@
+@import "../variables"
+
+.shopNav
+    background: $mediGrey
+    height: 60px
+    &__container
+        display: flex
+        align-items: center
+        justify-content: flex-start
+    &__linksGroup
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        @media only screen and (max-width: 750px)
+            display: none
+        &--right
+            margin-left: auto
+            @media only screen and (max-width: 750px)
+                display: flex
+    &__link
+        color: $mediBlue
+        font-family: 'Sofia Pro'
+        font-weight: bold
+        font-size: 16px
+        line-height: 20px
+        margin-right: 25px
+        transition: all 0.15s ease-in-out
+        &:hover
+            opacity: 0.5
+        &--sell
+            @media only screen and (max-width: 950px)
+                display: none
+    &__search
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        @media only screen and (max-width: 750px)
+            width: 100%
+            margin-right: 25px
+    &__searchBox
+        color: $mediBlue
+        min-height: 33px
+        width: 275px
+        background: $mediWhite
+        border: none
+        padding: 0 17px
+        color: $mediBlue
+        font-family: $pFF
+        font-size: $pFS
+        &::placeholder
+            color: $mediBlue
+            opacity: 0.47
+            font-family: $pFF
+            font-size: $pFS
+        @media only screen and (max-width: 950px)
+            width: 182px
+        @media only screen and (max-width: 750px)
+            width: 100%
+    &__searchButton
+        padding: 0
+        border: none
+        height: 33px
+    &__svg
+        height: 16px
+        position: relative
+        &--cart
+            margin-top: -5px
+            .full
+                display: none
+            &:hover
+                .full
+                    display: inline-block
+                .empty
+                    display: none
+        &--heart
+            margin-right: 25px
+            margin-top: -7px
+            svg
+                height: unset
+                width: 1rem
+                path
+                    stroke: $mediBlue
+                    transition: all 0.15s ease-in-out
+                &:hover
+                    path
+                        fill: $mediBlue
+    &__count
+        background: $mediBlue
+        font-size: 10px
+        line-height: 15px
+        text-align: center
+        border-radius: 50%
+        position: absolute
+        top: -7px
+        right: -7px
+        width: 15px
+        height: 15px

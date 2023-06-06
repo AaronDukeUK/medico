@@ -1,0 +1,72 @@
+@import "../variables"
+
+.blogTopics
+    background: $mediBlue
+    padding: 40px 0 55px 0
+    @media only screen and (max-width: 600px)
+        padding: 15px 0
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        @media only screen and (max-width: 600px)
+            align-items: flex-start
+    &__heading
+        color: $mediWhite
+        margin-bottom: 26px
+        font-size: 18px
+        @media only screen and (max-width: 900px)
+            margin-bottom: 18px
+    &__topicsContainer
+        display: flex
+        align-items: center
+        justify-content: space-around
+        width: 100%
+        @media only screen and (max-width: 600px)
+            flex-direction: column
+            align-items: flex-start
+    &__topic
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        @media only screen and (max-width: 600px)
+            flex-direction: row
+            margin: 10px 0
+        svg
+            @media only screen and (max-width: 900px)
+                width: 68px
+                height: 68px
+            @media only screen and (max-width: 600px)
+                margin-right: 22px
+                width: 47px
+                height: 47px
+            path
+                transition: all 0.15s ease-in-out
+                fill: $mediWhite
+            circle
+                transition: all 0.15s ease-in-out
+                stroke: $mediWhite
+
+        &:hover
+            svg
+                path
+                    opacity: 0.5
+                circle
+                    opacity: 0.5
+
+    &__body
+        margin-top: 20px
+        color: $mediWhite
+        @media only screen and (max-width: 600px)
+            margin: 0
+
+    .clicked  
+        svg
+            background: $mediWhite
+            border-radius: 50%
+            path
+                z-index: 2
+                fill: $mediBlue

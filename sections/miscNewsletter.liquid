@@ -1,0 +1,50 @@
+<div class="container">
+    <section class="newsletter" data-aos="fade-up">
+        <div class="newsletter__container">
+            <h2 data-aos="fade-up" data-aos-delay="100" class="newsletter__heading">
+                Join the
+                <span>community!</span>
+                <br/>
+                Sign up for our newsletter
+            </h2>
+
+            <p data-aos="fade-up" data-aos-delay="200" class="newsletter__body">
+                {{section.settings.news_text}}
+            </p>
+
+            {% form 'customer' %}
+                <input data-cons-preference="newsletter" id="contact_tags" name="contact[tags]" type="hidden" value="prospect,newsletter"/>
+                <input data-cons-subject="email" class="newsletter__input" id="contact_email" name="contact[email]" placeholder="Enter your email address" type="email"/>
+                <button id="newsletter-submit-btn" class="newsletter__button" type="submit">
+                    {% include 'miscNewsletterArrow' %}
+                </button>
+            {% endform %}
+            <script type="text/javascript">
+                _iub.cons_instructions.push(["load",
+                    {
+                        submitElement: "newsletter-submit-btn",
+                        form: {
+                            selector: "contact_form",
+                        }
+                    }
+                ])
+            </script>
+        </div>
+    </section>
+</div>
+
+{% schema %}
+
+{
+    "name": "Newsletter Section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "news_text",
+            "label": "Newsletter Text",
+            "default": "Medico Lifestyle was created in January 2018 by two newlywed medical students with a mission to provide high quality, beautiful and practical lifestyle products."
+        }
+    ]
+}
+
+{% endschema %}

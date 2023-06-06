@@ -1,0 +1,10 @@
+<div class="wishlistItem" data-product-id="{{ product.id }}" data-product-handle="{{ product.handle }}">
+    <a href="{{ product.url }}">
+        <img class="wishlistItem__image" src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title }}">
+    </a>
+    <div class="wishlistItem__info">
+        <h3 class="wishlistItem__heading">{{ product.title }}</h3>
+        <p class="wishlistItem__price">{{ product.price | money }}</p>
+        {% include 'accountWishlistRemove'%}
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<nav class="shopNav">
+    <div class="container shopNav__container">
+        <div class="shopNav__linksGroup">
+            {% for item in linklists.categories-menu.links %}
+                <a class="shopNav__link" href="{{shop.secure_url}}{{item.url}}">{{item.title}}</a>
+            {% endfor %}
+        </div>
+        <form action="/search" class="shopNav__search">
+            <input type="hidden" name="type" value="product" />
+            <input class="shopNav__searchBox" type="text" required placeholder="Search for designs, colours..." name="q"
+                value="{{ search.terms | escape }}" />
+            <button class="shopNav__searchButton" type="submit">{% include 'miscSearchArrow' %}</button>
+        </form>
+        <div class="shopNav__linksGroup shopNav__linksGroup--right">
+            <a class="shopNav__link  shopNav__link--sell" href="/pages/sell">Sell</a>
+            <a 
+                class="shopNav__svg shopNav__svg--heart" 
+                    href="#"
+            >
+                <!-- include 'wishlist-link' -->
+                
+                <span class="shopNav__count wishlist-item-count" id ="wishCircle" style="display: none;">
+                    
+                </span>
+            </a>
+            <a class="shopNav__svg shopNav__svg--cart" href="/cart">
+                {% include 'miscShoppingCart' %}
+                {% if cart.item_count > 0 %}
+                <span class="shopNav__count">
+                {{ cart.item_count }}
+                </span>
+                {% endif %}
+            </a>
+        </div>
+</nav>

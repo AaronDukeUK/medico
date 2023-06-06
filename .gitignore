@@ -1,0 +1,5 @@
+node_modules
+assets
+.DS_Store
+config.yml
+yarn-error.log

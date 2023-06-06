@@ -1,0 +1,51 @@
+<section class="podcastHero">
+    <div class="podcastHero__container container">
+        <div class="podcastHero__content">
+            <h1 class="podcastHero__heading">{{section.settings.pod_title}}</h1>
+            <p class="podcastHero__body">
+                {{section.settings.pod_text_one}}
+            </p>
+            <p class="podcastHero__body">
+                {{section.settings.pod_text_two}}
+            </p>
+            <a data-aos-delay="100" data-aos="fade-up" href="#shopify-section-podcastTopics" id="arrow-down">{% include 'miscHeroArrow' %}</a>
+        </div>
+        <div class="podcastHero__herosvg">{% include 'podcastHero' %}</div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll("a#arrow-down").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const anchorName = link.getAttribute("href");
+            document.querySelector(anchorName).scrollIntoView({behavior: "smooth"});
+        })
+    });
+</script>
+
+{% schema %}
+
+{
+"name": "Podcast Page Hero",
+"settings": [
+  {
+    "type": "text",
+    "id": "pod_title",
+    "label": "Title",
+    "default": "Podcasts"
+  }, {
+    "type": "text",
+    "id": "pod_text_one",
+    "label": "Text One",
+    "default": "Dolor sit amet, consectetur adipiscing elit. Arcu quisque feugiat commodo faucibus. Neque, ultrices urna, integer et orci risus, et nam amet."
+  }, {
+    "type": "text",
+    "id": "pod_text_two",
+    "label": "Text Two",
+    "default": "Purus eget lectus ac morbi semper adipiscing dui. Arcu, urna mauris a nulla. At odio lorem eget phasellus a fermentum et placerat sagittis."
+  }
+]
+}
+
+{% endschema %}

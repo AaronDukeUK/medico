@@ -1,0 +1,79 @@
+<!doctype html>
+<head>
+  <title>{{ page_title }}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  {{ content_for_header }} <!-- Header hook for plugins -->
+  {{ '//code.jquery.com/jquery-1.11.3.min.js' | script_tag }}
+  {{ 'application.css' | asset_url | stylesheet_tag }}
+  {% if settings.app_wk_enabled %}
+    {% include 'appmate-wishlist-king' %}
+  {% endif %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="512x512" href="{{ 'android-chrome-512x512.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ 'android-chrome-192x192.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32x32.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ 'favicon-16x16.png' | asset_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | asset_url }}">
+  <link rel="manifest" href="{{ 'site.webmanifest' | asset_url }}">
+  <script>
+    window.theme = {
+      strings: {
+        addToCart: {{ 'products.product.add_to_cart' | t | json }},
+        soldOut: {{ 'products.product.sold_out' | t | json }},
+        unavailable: {{ 'products.product.unavailable' | t | json }}
+      },
+      moneyFormat: {{ shop.money_format | json }}
+    };
+  </script>
+  <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {
+      "consentOnContinuedBrowsing":false,
+      "lang":"en",
+      "siteId":2109133,
+      "cookiePolicyId":80958836,
+      "banner": {
+        "brandBackgroundColor":"#1427c8",
+        "brandTextColor":"black",
+        "acceptButtonDisplay":true,
+        "customizeButtonDisplay":true,
+        "acceptButtonColor":"#1427c8",
+        "acceptButtonCaptionColor":"white",
+        "customizeButtonColor":"#DADADA",
+        "customizeButtonCaptionColor":"#4D4D4D",
+        "rejectButtonDisplay":true,
+        "rejectButtonColor":"#ffa2b8",
+        "rejectButtonCaptionColor":"white",
+        "position":"float-top-center",
+        "textColor":"black",
+        "backgroundColor":"white"
+      },
+      "callback": {
+        onConsentGiven: function(){
+          window.Shopify.customerPrivacy.setTrackingConsent(true, function(){});
+        }
+      }
+    };
+  </script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script type="text/javascript">var _iub = _iub || {}; _iub.cons_instructions = _iub.cons_instructions || []; _iub.cons_instructions.push(["init", {api_key: "euX8GQfR90fbhg8VtbK1jxiBtzR4zVSF"}]);</script><script type="text/javascript" src="https://cdn.iubenda.com/cons/iubenda_cons.js" async></script>
+</head>
+<body>
+  {% if page_title contains "policy" %}
+  {% section 'miscNavbar' %}
+  {% else %}
+  {% section 'homeNavbar' %}
+  {% endif %}
+  <main role="main">
+    {{ content_for_layout }}
+  </main>
+{% section 'miscFooter' %}
+  <!-- Footer Scripts ================================ -->
+  {{ 'application.js' | asset_url | script_tag }}
+
+</body>
+</html>

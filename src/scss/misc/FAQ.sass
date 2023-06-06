@@ -1,0 +1,72 @@
+@import "../variables"
+
+.FAQHeader
+    height: 300px
+    width: 100%
+    background: $mediBlue
+    display: flex
+    align-items: center
+    justify-content: center
+    @media only screen and (max-width: 500px)
+        height: 130px
+    h1
+        text-align: center
+        margin: 0 20px
+
+.faq
+    padding: 70px 0
+    max-width: 620px
+    margin: 0 auto
+    @media only screen and (max-width: 800px)
+        padding: 30px 0 60px 0
+    @media only screen and (max-width: 500px)
+        padding: 20px 0 40px 0
+
+    &__item
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+        &--active
+            .faq__crossLine
+                &:first-child
+                    transform: rotate(90deg)
+            .faq__content
+                max-height: 400px
+            .faq__body
+                opacity: 1
+
+    &__crossContainer
+        position: relative
+        height: 14px
+        width: 14px
+        margin-right: 40px
+        cursor: pointer
+        @media only screen and (max-width: 500px)
+            margin-right: 25px
+    &__crossLine
+        position: absolute
+        top: 10px
+        width: 14px
+        height: 2px
+        background: $mediBlue
+        transform-origin: 7px
+        transition: all 0.15s ease-in-out
+
+    &__content
+        max-height: 20px
+        max-width: 550px
+        overflow: hidden
+        transition: all 0.15s ease-in-out
+    &__heading
+        color: $mediDarkGrey
+        margin-bottom: 20px
+    &__body
+        transition: all 0.15s ease-in-out
+        opacity: 0
+    &__line
+        margin: 20px 0
+        height: 1px
+        width: 100%
+        background: $mediGrey
+        &:last-child
+            display: none

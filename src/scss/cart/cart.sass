@@ -1,0 +1,159 @@
+@import "../variables"
+
+.cart-container
+    position: relative
+    overflow: hidden
+
+.cart
+    padding: 58px 0 125px 0
+    @media only screen and (max-width: 950px)
+        padding: 29px 0 84px 0
+    @media only screen and (max-width: 650px)
+        padding: 20px 0 137px 0
+
+    &__header
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 35px
+        @media only screen and (max-width: 650px)
+            flex-direction: column
+            align-items: flex-start
+            margin-bottom: 30px
+
+    &__heading
+        color: $mediBlue
+        @media only screen and (max-width: 650px)
+            margin-bottom: 19px
+
+    &__return
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: all 0.15s ease-in-out
+        svg
+            margin-right: 20px
+        &:hover
+            opacity: 0.5
+
+    form
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        @media only screen and (max-width: 650px)
+            flex-direction: column
+            align-items: stretch
+
+    &__products
+        width: 100%
+        max-width: 400px
+        margin-right: 20px
+
+    &__summary
+        background: $mediGrey
+        width: 300px
+        padding: 25px
+        &--mobile
+            display: none
+        // SUMMARY
+        @media only screen and (max-width: 650px)
+            display: none
+            width: 100%
+            padding: 10px 15px
+            position: absolute
+            bottom: 0
+            left: 0
+            z-index: 5
+            &--mobile
+                display: block
+
+    &__summaryHeading
+        color: $mediBlue
+        overflow: hidden
+        font-size: 29px
+
+    &__summaryPrice
+        display: flex
+        justify-content: space-between
+        align-items: center
+        font-weight: bold
+        margin: 35px 0
+        @media only screen and (max-width: 650px)
+            margin: 0 0 9px 0
+        p
+            font-family: 'Sofia Pro'
+            font-size: 18px
+
+    &__summaryButton
+        background: $mediBlue
+        border: 1px solid $mediBlue
+        width: 100%
+        transition: all 0.15s ease-in-out
+        &:hover
+            color: $mediBlue
+            background: $mediWhite
+
+    &__summaryPayments
+        margin: 17px 0 28px 0
+        img
+            width: 100%
+            margin-top: 10px
+
+    &__summaryDiscounts
+        display: flex
+        justify-content: space-between
+        align-items: center
+        svg
+            min-width: 34px
+            margin-right: 17px
+
+    &__empty
+        padding: 194px 0
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        margin: 0 auto
+        overflow: hidden
+        svg
+            margin-left: 90px
+        @media only screen and (max-width: 650px)
+            padding: 84px 0 54px 0
+            svg
+                width: 80%
+                height: auto
+    &__emptyText
+        margin: 45px 0 16px 0
+        text-align: center
+    &__emptyButton
+        color: $mediDarkGrey
+        border: 1px solid $mediDarkGrey
+        transition: all 0.15s ease-in-out
+        &:hover
+            color: $mediWhite
+            border: 1px solid $mediBlue
+            background: $mediBlue
+
+.cartOverlay
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: #010101
+    pointer-events: none
+    z-index: 2
+
+.summary-openButton
+    display: none
+    width: 40px
+    height: 20px
+    position: absolute
+    top: -20px
+    background: $mediGrey
+    left: calc(50% - 20px)
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    @media only screen and (max-width: 750px)
+        display: flex

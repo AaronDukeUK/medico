@@ -1,0 +1,84 @@
+<div class="container" id="purchasesPage">
+    <section class="purchases" data-aos="fade-up">
+        {% assign total_orders = customer.orders.size %}
+        {% if total_orders > 0 %}
+
+            {% assign max_size = 2.0 %}
+            {% paginate customer.orders by max_size %}
+                {% for order in customer.orders %}
+                    <article class="order">
+                      <h3>Order No. {{ order.name }}</h3>
+                      <div class="order__images">
+                        {% for line_item in order.line_items limit:2 %}
+                            <div class="order__image">{{ line_item | img_url: '300x300', crop: 'center' | img_tag }}</div>
+                        {% endfor %}
+                        {% if order.line_items.size >= 3 %}
+                          <div class="order__image order__image-extra">
+                            {{ order.line_items[2] | img_url: '300x300', crop: 'center' | img_tag }}
+                            <div class="order__image-plus">+{{ order.line_items.size | minus: 3 }}</div>
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="order__info">
+                        <h3>Order No. {{ order.name }}</h3>
+                        <p class="order__date">Order Date: {{ order.created_at | date: '%d/%m/%Y' }}</p>
+                        <p class="order__status">
+                          {% case order.fulfillment_status %}
+                          {% when 'unfulfilled' %}
+                          Order received
+                          {% when 'fulfilled' %}
+                          Shipped
+                          {% when 'partial' %}
+                          Partially shipped
+                          {% else %}
+                          {{order.fulfillment_status_label}}
+                          {% endcase %}
+                        </p>
+                        <a href="{{order.customer_url}}" data-aos-delay="300" data-aos="fade-up">
+                            <button class="order__button">View Order</button>
+                        </a>
+                      </div>
+                    </article>
+                    <hr>
+                {% endfor %}
+
+                {% assign page_current = paginate.current_page %}
+                {% assign page_max = total_orders | divided_by: max_size %}
+                {% assign page_max = page_max | ceil  %}
+
+                <!-- Pagination links -->
+                <div class="purchases__pagination">
+                    {% if page_current >1 %}
+                    <a href="/account?page={{ page_current | minus : 1 }}" class="">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.56877 0.0524987L0.176853 2.68764C-0.0589514 2.82914 -0.0589514 3.17089 0.176853 3.31238L4.56877 5.94752C4.81158 6.09322 5.12049 5.9183 5.12049 5.63515L5.12049 0.364862C5.12049 0.0817016 4.81158 -0.0932123 4.56877 0.0524987Z" fill="#5E5E5E"/></svg>
+                    </a>
+                    {% endif %}
+
+                    <div class="page-numbers">
+                        {% for i in (1..page_max) %}
+                            <a href="/account?page={{i}}" class="{% if page_current == i %}is-active{% endif %}">{{i}}</a>
+                        {% endfor %}
+                    </div>
+
+                    {% if page_current < page_max %}
+                    <a href="/account?page={{ page_current | plus : 1 }}" class="">
+                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.551833 5.94701L4.94375 3.31187C5.17956 3.17037 5.17956 2.82862 4.94375 2.68713L0.551833 0.0519944C0.309021 -0.0937047 0.000114436 0.0812092 0.000114417 0.364357L0.000114067 5.63465C0.000114049 5.91781 0.30902 6.09272 0.551833 5.94701Z" fill="#5E5E5E"/></svg>
+                    </a>
+                    {% endif %}
+                </div>
+
+            {% endpaginate %}
+
+
+            <!-- If no orders -->
+        {% else %}
+            <div class="purchases__empty">
+                {% include 'cartEmpty' %}
+                <p class="purchases__emptyText">When you make a purchase, they’ll show up here.</p>
+                <a href="/pages/shop">
+                    <button class="purchases__emptyButton">Start shopping</button>
+                </a>
+            </div>
+        {% endif %}
+    </section>
+</div>

@@ -1,0 +1,33 @@
+@import "../variables"
+@import "../breakpoints"
+
+.sellInfo
+    &__container
+        display: flex
+        align-items: stretch
+        flex-direction: column
+        justify-content: space-between
+        &--flip
+            flex-direction: column-reverse
+        @include md
+            flex-direction: row
+            margin: 0 0 40px 0
+        @include lg
+            margin: 0 0 120px 0
+    &__image
+        width: 45%
+        svg
+            width: 100%
+            height: auto
+    &__content
+        @include md
+            flex: 1
+            margin-right: 50px
+            &--flip
+                margin-left: 50px
+                margin-right: 0
+    &__heading
+        color: $mediBlue
+        margin: 0 0 24px 0
+    &__body
+        margin: 20px 0

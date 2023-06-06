@@ -1,0 +1,16 @@
+{% if shop.customer_accounts_enabled %}
+    {% if customer %}
+        <a class="miscNavbar__link miscNavbar__link--right miscNavbar__accountLink" href="#">
+            {% render 'svgAccount' %}
+            <span>Account</span>
+        </a>
+        <div class="miscNavbar__accountDropdownContainer">
+            <ul class="miscNavbar__accountDropdown">
+                <li><a href="/account">My account</a></li>
+                <li>{{ "Sign Out" | customer_logout_link }}</li>
+            </ul>
+        </div>
+    {% else %}
+        <a class="miscNavbar__link miscNavbar__link--right" href="/account/login" id="customer_login_link">Sign in</a>
+    {% endif %}
+{% endif %}

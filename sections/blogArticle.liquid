@@ -1,0 +1,35 @@
+<div class="blogArticle" data-aos="fade-up">
+    <div class="container blogArticle__container">
+        <p class="blogArticle__date" data-aos="fade-up" data-aos-delay="100">
+            {{ article.published_at | date: "%B %d, %Y" }}
+        </p>
+        <h1 class="blogArticle__heading1" data-aos="fade-up" data-aos-delay="200">
+            {{ article.title }}
+        </h1>
+        <p class="blogArticle__excerpt" data-aos="fade-up" data-aos-delay="300">
+            {{ article.excerpt }}
+        </p>
+        <div class="blogArticle__image" data-aos="fade-up" data-aos-delay="400">
+            <img src="{{ article.image | img_url: '1200x800' }}" alt="{{ article.image.alt }}"/>
+            <div class="blogArticle__socials">
+                <a href="https://www.facebook.com/medicolifestyle/" target="_blank" data-aos="fade-up">
+                    {% include 'miscFacebook' %}
+                </a>
+                <a href="https://twitter.com/MedicoLifestyle" target="_blank" data-aos="fade-up">
+                    {% include 'miscTwitter' %}
+                </a>
+            </div>
+        </div>
+        <div class="blogArticle__content" data-aos="fade-up">
+            {{ article.content }}
+        </div>
+        <div class="blogArticle__socials blogArticle__socials--mobile" data-aos="fade-up">
+            <a href="#">
+                {% include 'miscFacebook' %}
+            </a>
+            <a href="#">
+                {% include 'miscTwitter' %}
+            </a>
+        </div>
+    </div>
+</div>

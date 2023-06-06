@@ -1,0 +1,66 @@
+<div class="container">
+    <section class="sellhow"data-aos="fade-up">
+        <div class="sellhow__content">
+            <h1 class="sellhow__heading" data-aos-delay="100" data-aos="fade-up">{{section.settings.title}}</h1>
+            <p class="sellhow__body" data-aos-delay="100" data-aos="fade-up">
+                {{section.settings.text_one}}
+            </p>
+            <p class="sellhow__body" data-aos-delay="200" data-aos="fade-up">
+                {{section.settings.text_two}}
+            </p>
+            <p class="sellhow__body" data-aos-delay="300" data-aos="fade-up">
+                {{section.settings.text_three}}
+            </p>
+            <p class="sellhow__body" data-aos-delay="400" data-aos="fade-up">
+                {{section.settings.text_four}}
+            </p>
+        </div>
+        <div class="sellhow__image" data-aos="fade-up">
+            {% if section.settings.sell_image != blank %}
+                {{ section.settings.sell_image | img_url: '1000x' | img_tag }}
+            {% else %}
+            {{ "Sell-How.png" | asset_url | img_tag: "How it works" }}
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+{% schema %}
+
+{
+"name": "Sell Section One",
+"settings": [
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Title",
+    "default": "How does it work?"
+  }, {
+    "type": "text",
+    "id": "text_one",
+    "label": "Text One",
+    "default": "Egestas enim purus et a. A, sit id tellus porta ullamcorper tortor donec massa purus. Ut mauris, volutpat pellentesque urna sem integer turpis turpis nisl."
+  }, {
+    "type": "text",
+    "id": "text_two",
+    "label": "Text Two",
+    "default": "Dolor pulvinar massa adipiscing dui enim sed. Sed maecenas morbi non dictum mattis mi commodo. Parturient dolor risus nisl augue amet gravida dui eget."
+  }, {
+    "type": "text",
+    "id": "text_three",
+    "label": "Text Three",
+    "default": "Pellentesque purus nam quam euismod ut molestie. Tempor in diam enim commodo erat vitae morbi augue. Tellus porttitor viverra a morbi vivamus commodo non at. Erat ornare vitae magna ipsum purus vitae orci auctor quam. Lectus ac vitae egestas habitasse condimentum tincidunt."
+  }, {
+    "type": "text",
+    "id": "text_four",
+    "label": "Text Four",
+    "default": "Lorem orci, nam et nas fermentum sed eget nunc. Fames in risus donec ut in."
+  }, {
+    "type": "image_picker",
+    "id": "sell_image",
+    "label": "Image"
+  }
+]
+}
+
+{% endschema %}

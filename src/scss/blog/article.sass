@@ -1,0 +1,80 @@
+@import "../variables"
+
+.blogArticle
+    padding: 75px 0
+    @media only screen and (max-width: 900px)
+        padding: 60px 0
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+    &__date
+        color: $mediDarkGrey
+    &__heading1
+        color: $mediBlue
+        margin: 75px 0 35px 0
+        @media only screen and (max-width: 650px)
+            margin: 50px 0
+    &__excerpt
+        margin-bottom: 75px
+        max-width: 454px
+        text-align: center
+        @media only screen and (max-width: 650px)
+            margin-bottom: 40px
+    &__image
+        position: relative
+        width: 100%
+        height: 523px
+        @media only screen and (max-width: 650px)
+            height: 400px
+        @media only screen and (max-width: 500px)
+            height: 320px
+        img
+            object-fit: cover
+            height: 100%
+            width: 100%
+    &__socials
+        position: absolute
+        left: 0
+        bottom: -155px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        &--mobile
+            display: none
+        @media only screen and (max-width: 650px)
+            display: none
+            &--mobile
+                display: flex
+                position: static
+                flex-direction: row
+
+        a
+            &:first-child
+                margin-bottom: 16px
+                @media only screen and (max-width: 650px)
+                    margin: 0 25px 0 0
+        svg
+            path
+                transition: fill 0.15s ease-in-out
+                fill: $mediLightGrey
+            &:hover
+                path
+                    fill: $mediBlue
+
+    &__content
+        max-width: 611px
+        margin: 40px
+        @media only screen and (max-width: 900px)
+            max-width: 467px
+        @media only screen and (max-width: 650px)
+            margin: 20px 0 40px 0
+        p
+            margin: 20px 0
+        img
+            margin: 10px 0
+            width: 100%
+        h2
+            color: $mediBlue

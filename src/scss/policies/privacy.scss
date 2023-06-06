@@ -1,0 +1,35 @@
+@import "../variables";
+@import "../breakpoints";
+.privacy-policy{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  .policy-body{
+    max-width: 65ch;
+    font-family: 'Apercu', sans-serif;
+    color: $mediDarkGrey;
+    font-size: 18px;
+    line-height: 1.45;
+    a{
+      color: $mediBlue;
+    }
+    h1, h2, h3{
+      color: $mediBlue;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+    h3{
+      font-size: 18px;
+    }
+    ul{
+      list-style: disc;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      li{
+        margin-bottom: 10px;
+        margin-left: 40px;
+      }
+    }
+  }
+
+
+}

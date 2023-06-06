@@ -1,0 +1,28 @@
+<article class="collectionItems__product">
+
+    {% for tag in product.tags %}
+        {% if tag contains 'Top Picks' %}
+            {% include 'miscBestsellerIcon' %}
+        {% endif %}
+        {% if tag contains 'New' %}
+            {% include 'miscNewIcon' %}
+        {% endif %}
+    {% endfor %}
+
+    {% if product.available != true %}
+        {% include 'miscSoldOutIcon' %}
+    {% endif %}
+
+
+    <a href="{{ product.url | within: collection }}">
+        <div class="collectionItems__image">
+            <img src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}"/>
+        </div>
+        <h3 class="collectionItems__title">{{ product.title }}</h3>
+        <p class="collectionItems__price">{{ product.price | money }}</p>
+        <p class="collectionItems__soldby">
+            <span>Sold by</span>
+            <span class="collectionItems__vendor">{{ product.vendor }}</span>
+        </p>
+    </a>
+</article>

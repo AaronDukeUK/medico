@@ -1,0 +1,19 @@
+{% assign vendor_products = collections["all"].products | where: "vendor", product.vendor %}
+<div class="container">
+    <section class="productMore">
+        <h2 class="productMore__heading" data-aos="fade-up">More by
+            {{ product.vendor }}</h2>
+        <div class="productMore__container">
+
+            {% for item in vendor_products %}
+                {% include 'miscCollectionItem', index: forloop.index0 %}
+            {% else %}
+                <p>No more products yet.</p>
+            {% endfor %}
+
+        </div>
+        <a class="productMore__link" href="/pages/vendor/{{ product.vendor }}">
+            <button class="productMore__button">View all</button>
+        </a>
+    </section>
+</div>

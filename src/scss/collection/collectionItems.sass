@@ -1,0 +1,101 @@
+@import "../variables"
+@import "../breakpoints"
+
+.collectionContainer
+    position: relative
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+
+.collectionItems
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+    margin: 41px 0 85px 0
+    @media only screen and (max-width: 950px)
+        margin: 23px 0 95px 0
+    @media only screen and (max-width: 550px)
+        margin: 20px 0 60px 0
+    &__countContainer
+        align-self: flex-end
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-bottom: 40px
+        @media only screen and (max-width: 950px)
+            align-self: flex-start
+            margin-bottom: 20px
+    &__count
+        margin: 0 15px 0 0
+        @media only screen and (max-width: 950px)
+            display: none
+    &__filterButton
+        color: $mediDarkGrey
+        border: 1px solid $mediDarkGrey
+        height: 40px
+        margin-right: 10px
+        display: none
+        svg
+            margin: 0 0 -2px 20px
+        @media only screen and (max-width: 950px)
+            display: block
+    &__sort
+        width: 175px
+        height: 40px
+        color: $mediDarkGrey
+        border: 1px solid $mediDarkGrey
+        appearance: none
+        background-image: url('../../images/collection/collectionSortArrow.svg')
+        background-repeat: no-repeat
+        background-position: 155px 50%
+        padding: 0 0 0 15px
+        option
+            display: inline-block
+            padding: 10px
+    &__productsContainer
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-column-gap: 15px
+        grid-row-gap: 40px
+        @media only screen and (max-width: 650px)
+            grid-template-columns: 1fr 1fr
+    &__product
+        position: relative
+        svg
+            position: absolute
+            top: 10px
+            right: 10px
+            width: 40px
+            height: 40px
+            @media only screen and (max-width: 750px)
+                width: 31px
+                height: 31px
+    &__image
+        width: 100%
+        overflow: hidden
+        img
+            display: block
+            width: 100%
+            height: 100%
+            object-fit: cover
+    &__title
+        margin-top: 15px
+        color: $mediBlue
+        font-size: 18px
+        line-height: 21px
+        overflow: hidden
+        display: -webkit-box
+        -webkit-line-clamp: 2
+        -webkit-box-orient: vertical
+    &__price
+        margin: 10px 0
+    &__vendor
+        font-weight: bold
+
+.collectionPagination
+    margin-bottom: 50px
+    display: flex
+    align-items: center
+    justify-content: center

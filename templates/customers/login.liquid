@@ -1,0 +1,49 @@
+{% layout 'infoTheme' %}
+
+{% if customer  %}
+    <script type="text/javascript">
+        window.location = "/account";
+    </script>
+{% endif %}
+
+<div class="container">
+    <div class="loginPage">
+        <div class="loginPage__desktopSvg">
+            {% include 'customersLoginLinesLeft' %}
+        </div>
+        <div class="loginPage__mobileSvg">
+            {% include 'customersLoginLinesMobile' %}
+        </div>
+        <div class="loginPage__content">
+            <h1 class="loginPage__heading">Sign in</h1>
+
+            {% form 'customer_login' %}
+
+                {{ form.errors | default_errors }}
+
+                <input class="loginPage__input" name="customer[email]" placeholder="Email address" required type="email"/>
+
+                <input class="loginPage__input" name="customer[password]" placeholder="Password" required type="password"/>
+
+                <a class="loginPage__forgot" href="/pages/recover">Forgot your password?</a>
+
+                <button class="loginPage__button" type="submit">
+                    Sign in
+                </button>
+
+            {% endform %}
+
+            <p class="loginPage__signUp">
+                Don't have an account yet?
+                <a class="loginPage__link" href="/account/register">Sign up.</a>
+            </p>
+            <div class="loginPage__line"></div>
+            <a href="https://sell.medicolifestyle.com" target="_blank">
+                <button class="loginPage__button">Seller Sign in</button>
+            </a>
+        </div>
+        <div class="loginPage__desktopSvg">
+            {% include 'customersLoginLinesLeft' %}
+        </div>
+    </div>
+</div>

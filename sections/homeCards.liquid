@@ -1,0 +1,102 @@
+<div class="container">
+    <section class="cards">
+        <article class="cards__card" data-aos="fade-up">
+            <a href="/pages/shop">
+                <div class="cards__image">
+                    {% if section.settings.shop_image != blank %}
+                        {{ section.settings.shop_image | img_url: '700x550', crop: 'center' | img_tag }}
+                    {% else %}
+                        {{ "Card-Shop.png" | asset_url | img_tag: "Shop" }}
+                    {% endif %}
+                </div>
+                <div class="cards__content">
+                    <div class="cards__headerAndArrow">
+                        <h2 class="cards__header">Marketplace</h2>
+                        {% include 'miscCardArrow' %}
+                    </div>
+                    <p class="cards__body">
+                        {{section.settings.shop_text}}
+                    </p>
+                </div>
+            </a>
+        </article>
+        <article class="cards__card" data-aos-delay="100" data-aos="fade-up">
+            <a href="/blogs/podcast">
+                <div class="cards__image">
+                    {% if section.settings.podcast_image != blank %}
+                        {{ section.settings.podcast_image | img_url: '540x' | img_tag }}
+                    {% else %}
+                        {{ "Card-Podcast.png" | asset_url | img_tag: "Podcast" }}
+                    {% endif %}
+                </div>
+                <div class="cards__content cards__content--blue">
+                    <div class="cards__headerAndArrow">
+                        <h2 class="cards__header">Podcast</h2>
+                        {% include 'miscCardArrow' %}
+                    </div>
+                    <p class="cards__body">
+                        {{section.settings.podcast_text}}
+                    </p>
+                </div?>
+            </a>
+        </article>
+        <article class="cards__card" data-aos-delay="200" data-aos="fade-up">
+            <a href="/blogs/medico">
+                <div class="cards__image">
+                    {% if section.settings.blog_image != blank %}
+                        {{ section.settings.blog_image | img_url: '540x' | img_tag }}
+                    {% else %}
+                        {{ "Card-Blog.png" | asset_url | img_tag: "Blog" }}
+                    {% endif %}
+                </div>
+                <div class="cards__content cards__content--pink">
+                    <div class="cards__headerAndArrow">
+                        <h2 class="cards__header">Blog</h2>
+                        {% include 'miscCardArrow' %}
+                    </div>
+                    <p class="cards__body">
+                        {{section.settings.blog_text}}
+                    </p>
+                </div>
+            </a>
+        </article>
+    </section>
+</div>
+
+{% schema %}
+
+{
+    "name": "Home Cards",
+    "settings": [
+        {
+            "type": "text",
+            "id": "shop_text",
+            "label": "Shop Text",
+            "default": "A brief intro to the shop and the types of products sold"
+        }, {
+            "type": "text",
+            "id": "podcast_text",
+            "label": "Podcast Text",
+            "default": "A brief intro to the podcast and the type of content featured"
+        }, {
+            "type": "text",
+            "id": "blog_text",
+            "label": "Blog Text",
+            "default": "A brief intro to the blog and the type of content featured"
+        }, {
+            "type": "image_picker",
+            "id": "shop_image",
+            "label": "Shop Image"
+        }, {
+            "type": "image_picker",
+            "id": "podcast_image",
+            "label": "Podcast Image"
+        }, {
+            "type": "image_picker",
+            "id": "blog_image",
+            "label": "Blog Image"
+        }
+    ]
+}
+
+{% endschema %}

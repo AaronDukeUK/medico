@@ -1,0 +1,133 @@
+{% layout 'infoTheme' %}
+{% section 'accountProfile' %}
+{% section 'accountTabs' %}
+<div class="container">
+    <section class="orderPage" data-aos="fade-up">
+        <a class="orderPage__returnLink" href="/account">
+            {% include 'customersOrderReturn' %} 
+            <p class="orderPage__return">All Purchases</p>
+        </a>
+        <h1 class="orderPage__h1">Your order confirmation</h1>
+            <h2 class="orderPage__h2">Order {{ order.name }}</h2>
+            <p class="orderPage__date"><span class="bold">Order date:</span> {{ order.created_at | date: '%d/%m/%Y' }}</p>
+            <p class="orderPage__email"><span class="bold">Email:</span> {{order.email}}</p>
+
+            {% for line_item in order.line_items %}
+                <article class="orderPage__item" data-aos="fade-up">
+                    <div class="orderPage__itemImage" data-aos-delay="100" data-aos="fade-up">
+                    {{ line_item.image | img_url: '200x' | img_tag }}
+                    </div>
+                    <div class="orderPage__itemContent">
+                        <p class="orderPage__itemPrice" data-aos-delay="100" data-aos="fade-up">
+                            {{ line_item.original_price | money }}
+                        </p>
+                        <h3 class="orderPage__itemTitle" data-aos-delay="200" data-aos="fade-up">   
+                        {% if line_item.title contains '/' %}
+                            {% assign splitTitle = line_item.title  | split: "/" %}
+                            {{splitTitle[0]}}
+                        {% else %}
+                            {{ line_item.title }}
+                        {% endif %}
+                        </h3>
+                        <p class="orderPage__sold-by">
+                            Sold by
+                            <a href="/pages/vendor/{{ product.metafields.marketcube.brandSlug }}">
+                                <span class="orderPage__vendor">{{ line_item.vendor }}</span>
+                            </a>
+                        </p>
+                        <p class="orderPage__itemQuantity" data-aos-delay="300" data-aos="fade-up">
+                            Qty:
+                            {{ line_item.quantity }}
+                        </p>
+                    </div>
+                </article>
+            {% endfor %}
+
+            <div class="orderPage__totals">
+
+                <div class="orderPage__total" data-aos="fade-up">
+                    <h3 class="orderPage__totalsBody">Items total</h3>
+                    <h3 class="orderPage__totalsBody">
+                        {{ order.subtotal_price | money }}
+                    </h3>
+                </div>
+
+                <div class="orderPage__total" data-aos="fade-up">
+                    <h3 class="orderPage__totalsBody">Delivery</h3>
+                    <h3 class="orderPage__totalsBody">
+                        {{ order.shipping_price | money }}
+                    </h3>
+                </div>
+                <div class="orderPage__line"></div>
+
+                <div class="orderPage__total" data-aos="fade-up">
+                    <h3 class="orderPage__totalsBody orderPage__totalsBody--blue">Total</h3>
+                    <h3 class="orderPage__totalsBody orderPage__totalsBody--blue">
+                        {{ order.total_price | money }}
+                    </h3>
+                </div>
+
+            </div>
+
+            <div class="orderPage__addresses">
+
+                <div class="orderPage__address" data-aos="fade-up">
+
+                    <h2 class="orderPage__addressHeader">
+                        Delivery Address
+                    </h2>
+                    <p class="orderPage__addressBody">
+                        {{ order.shipping_address.name }}
+                    </p>
+                    <p class="orderPage__addressBody">
+                        {{ order.shipping_address.company }}
+                    </p>
+                    <p class="orderPage__addressBody">
+                        {{ order.shipping_address.address1 }}
+                    </p>
+                    <p class="orderPage__addressBody">
+                        {{ order.shipping_address.address2 }}
+                    </p>
+                    <p class="orderPage__addressBody">
+                        {{ order.shipping_address.city }}
+                    </p>
+                    <p class="orderPage__addressBody">
+                        {{ order.shipping_address.province }}
+                    </p>
+                    <p class="orderPage__addressBody">{{ order.shipping_address.zip }}</p>
+                    <p class="orderPage__addressBody">
+                        {{ order.shipping_address.country }}
+                    </p>
+
+                </div>
+
+                <div class="orderPage__address" data-aos-delay="100" data-aos="fade-up">
+
+                    <h2 class="orderPage__addressHeader">
+                        Billing Address
+                    </h2>
+                    <p class="orderPage__addressBody">{{ order.billing_address.name }}</p>
+                    <p class="orderPage__addressBody">
+                        {{ order.billing_address.company }}
+                    </p>
+                    <p class="orderPage__addressBody">
+                        {{ order.billing_address.address1 }}
+                    </p>
+                    <p class="orderPage__addressBody">
+                        {{ order.billing_address.address2 }}
+                    </p>
+                    <p class="orderPage__addressBody">{{ order.billing_address.city }}</p>
+                    <p class="orderPage__addressBody">
+                        {{ order.billing_address.province }}
+                    </p>
+                    <p class="orderPage__addressBody">{{ order.billing_address.zip }}</p>
+                    <p class="orderPage__addressBody">
+                        {{ order.billing_address.country }}
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>

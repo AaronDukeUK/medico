@@ -1,0 +1,80 @@
+<nav class="miscNavbar">
+    <div class="miscNavbar__container container">
+        <a class="miscNavbar__logoContainer" href="/">
+            <span class="miscNavbar__logo"></span>
+            <h3>Medico Lifestyle</h3>
+        </a>
+        <div class="miscNavbar__linkgroup">
+            <a class="miscNavbar__link" href="/pages/shop">Marketplace</a>
+            <a class="miscNavbar__link" href="/blogs/podcast">Podcast</a>
+            <a class="miscNavbar__link" href="/blogs/medico">Blog</a>
+            <a class="miscNavbar__link" href="/pages/about">About us</a>
+            {% render 'navAccountButton' %}
+        </div>
+        <div class="miscNavbar__burger" id="burger" onclick="openMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="mobileMenu" id="menu" style="opacity: 0; transition: all 0.15s ease-in">
+        <a class="mobileMenu__logoContainer" href="/">
+            <span class="mobileMenu__logo"></span>
+            <h3>Medico Lifestyle</h3>
+        </a>
+        <a class="mobileMenu__link" href="/pages/shop">Marketplace
+            <span id="shopDropdownButton">{% include 'miscMobileMenuArrow' %}</span>
+        </a>
+        <div class="mobileMenu__shopGroup" id="shopGroup">
+            {% for item in linklists.categories-menu.links %}
+                <a class="mobileMenu__link mobileMenu__link--smaller" href="{{shop.secure_url}}{{item.url}}">{{item.title}}</a>
+            {% endfor %}
+        </div>
+        <a class="mobileMenu__link" href="/blogs/podcast">Podcasts</a>
+        <a class="mobileMenu__link" href="/blogs/medico">Blog</a>
+        <a class="mobileMenu__link" href="/pages/about">About</a>
+        {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+                <a class="mobileMenu__link" href="/account">Account</a>
+            {% else %}
+                <a class="mobileMenu__link" href="/account/login" id="customer_login_link">Sign in</a>
+            {% endif %}
+        {% endif %}
+    </div>
+</nav>
+
+
+<script>
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+
+    openMenu = () => {
+        if (menu.style.opacity === "0") {
+            menu.style.opacity = "1";
+            menu.style.pointerEvents = "auto";
+            burger.classList.add("clicked");
+        } else {
+            menu.style.opacity = "0";
+            menu.style.pointerEvents = "none";
+            burger.classList.remove("clicked");
+        }
+    };
+
+
+    const shopDropdownButton = document.getElementById("shopDropdownButton");
+    const shopGroup = document.getElementById("shopGroup");
+
+    const handleShopClick = (e) => {
+        e.preventDefault();
+        if (shopGroup.classList.contains("mobileMenu__shopGroup--open")) {
+            shopGroup.classList.remove("mobileMenu__shopGroup--open");
+            shopDropdownButton.classList.remove("switched");
+        } else {
+            shopGroup.classList.add("mobileMenu__shopGroup--open");
+            shopDropdownButton.classList.add("switched")
+        }
+    }
+
+    shopDropdownButton.addEventListener("click", handleShopClick)
+</script>

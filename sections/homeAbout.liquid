@@ -1,0 +1,52 @@
+<div class="container">
+    <section class="about">
+        <div class="about__image" data-aos="fade-up">
+            {% if section.settings.about_image != blank %}
+                {{ section.settings.about_image | img_url: '800x' | img_tag }}
+            {% else %}
+                {{ "Section-About.png" | asset_url | img_tag: "About Us" }}
+            {% endif %}
+        </div>
+        <div class="about__content">
+            <h2 class="about__heading" data-aos-delay="100" data-aos="fade-up">
+                {{section.settings.about_title_one}}
+                <br/>
+                {{section.settings.about_title_two}}
+            </h2>
+            <p class="about__body" data-aos-delay="200" data-aos="fade-up">{{section.settings.about_text}}</p>
+            <a data-aos-delay="300" data-aos="fade-up" href="/pages/about">
+                <button class="about__button">More about us</button>
+            </a>
+        </div>
+    </section>
+</div>
+
+{% schema %}
+
+{
+    "name": "Home About",
+    "settings": [
+        {
+            "type": "text",
+            "id": "about_title_one",
+            "label": "About Title Line One",
+            "default": "Who are Medico?"
+        }, {
+            "type": "text",
+            "id": "about_title_two",
+            "label": "About Title Line Two",
+            "default": "Meet Emily and Jonas"
+        }, {
+            "type": "text",
+            "id": "about_text",
+            "label": "About Text",
+            "default": "Medico Lifestyle was created in January 2018 by two newlywed medical students with a mission to provide high quality, beautiful and practical lifestyle products. We have sourced beautiful, fun and sustainable products for our customers and we hope that you love them as much as we do!"
+        }, {
+            "type": "image_picker",
+            "id": "about_image",
+            "label": "About Image"
+        }
+    ]
+}
+
+{% endschema %}

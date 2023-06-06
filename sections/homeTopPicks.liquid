@@ -1,0 +1,39 @@
+{% assign collection = collections[section.settings.collection_name] %}
+
+<div class="container">
+    <section class="topPicks">
+        <h2 class="topPicks__heading" data-aos="fade-up">{{section.settings.collection_title}}</h2>
+        <div class="topPicks__container">
+
+            {% for item in collection.products limit:4 %}
+                {% include 'homeTopPick', index: forloop.index0 %}
+            {% else %}
+                <p>No Matches. Please Select a Collection.</p>
+            {% endfor %}
+
+        </div>
+
+    </section>
+</div>
+
+{% schema %}
+
+{
+"name": "Home Collection",
+"settings": [
+{
+"type": "text",
+"id": "collection_name",
+"label": "Collection Name",
+"info": "the collection name, all lowercase and a - instead of a space. ",
+"default": "top-picks"
+}, {
+"type": "text",
+"id": "collection_title",
+"label": "Collection Title",
+"default": "Our top picks from the shop"
+}
+]
+}
+
+{% endschema %}

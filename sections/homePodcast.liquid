@@ -1,0 +1,53 @@
+<div class="container">
+    <section class="podcast">
+        <div class="podcast__content">
+            <h2 class="podcast__heading" data-aos="fade-up">
+                {{section.settings.podcast_title_one}}
+                <br/><span class="podcast__span">{{section.settings.podcast_title_two}}</span>
+            </h2>
+            <p class="podcast__body" data-aos-delay="100" data-aos="fade-up">
+                {{section.settings.podcast_text}}
+            </p>
+            <a data-aos-delay="200" data-aos="fade-up" href="/blogs/podcast">
+                <button class="podcast__button">Listen here</button>
+            </a>
+        </div>
+        <div class="podcast__image" data-aos-delay="300" data-aos="fade-up">
+            {% if section.settings.podcast_image != blank %}
+                {{ section.settings.podcast_image | img_url: '800x' | img_tag }}
+            {% else %}
+                {{ "Section-Podcasts.png" | asset_url | img_tag: "Podcast" }}
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+{% schema %}
+
+{
+"name": "Home Podcast",
+"settings": [
+  {
+    "type": "text",
+    "id": "podcast_title_one",
+    "label": "Podcast Title Line One",
+    "default": "Check out the latest"
+  }, {
+    "type": "text",
+    "id": "podcast_title_two",
+    "label": "Podcast Title Line Two",
+    "default": "podcast episode"
+  }, {
+    "type": "text",
+    "id": "podcast_text",
+    "label": "Podcast Text",
+    "default": "Medico Lifestyle was created in January 2018 by two newlywed medical students with a mission to provide high quality, beautiful and practical lifestyle products. We have sourced beautiful, fun and sustainable products for our customers and we hope that you love them as much as we do!"
+  }, {
+    "type": "image_picker",
+    "id": "podcast_image",
+    "label": "Podcast Image"
+  }
+]
+}
+
+{% endschema %}

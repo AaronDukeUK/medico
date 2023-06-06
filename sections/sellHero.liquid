@@ -1,0 +1,43 @@
+<section class="sellHero">
+    <div class="sellHero__container container">
+        <div class="sellHero__content">
+            <h1 class="sellHero__heading">{{section.settings.title}}</h1>
+            <p class="sellHero__body">
+                {{section.settings.text}}
+            </p>
+            <a class="sellHero__cta" data-aos-delay="100" data-aos="fade-up" target="_blank" href="https://sell.medicolifestyle.com/join/5f56581aff583f0012fe2c1e/medico-marketplace">Open your shop</a>
+        </div>
+        <div class="sellHero__herosvg">{% include 'sellHero' %}</div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll("a#arrow-down").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const anchorName = link.getAttribute("href");
+            document.querySelector(anchorName).scrollIntoView({ behavior: "smooth" });
+        })
+    });
+</script>
+
+{% schema %}
+
+{
+"name": "Sell Page Hero",
+"settings": [
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Title",
+    "default": "Create and share your products!"
+  }, {
+    "type": "text",
+    "id": "text",
+    "label": "Text",
+    "default": "Sell your own products and reach thousands of buyers to earn cash for yourself and for charity!"
+  }
+]
+}
+
+{% endschema %}

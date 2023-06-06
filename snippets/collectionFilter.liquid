@@ -1,0 +1,26 @@
+<aside class="collectionFilter" id="collectionFilter">
+    <h2 class="collectionFilter__heading">Filter by</h2>
+    <h3 class="collectionFilter__catHeading">Categories</h3>
+
+    {% assign top_level_categories = linklists.categories-menu.links %}
+    {% assign top_level_tags = top_level_categories | map: 'title' | downcase %}
+
+    {% assign current_tags_downcase = current_tags | downcase %}
+
+    {% for tag in collection.all_tags %}
+        {% assign tag_downcase = tag | downcase %}
+        {% unless top_level_tags contains tag_downcase %}
+            {% if current_tags_downcase contains tag_downcase %}
+                <a class="collectionFilter__category collectionFilter__category--active" href="/collections/{{collection.handle}}">
+                    <span class="collectionFilter__catCircle"></span>
+                    <p class="collectionFilter__catTitle">{{ tag | capitalize }}</p>
+                </a>
+            {% else %}
+                <a class="collectionFilter__category" href="/collections/{{collection.handle}}/{{ tag | downcase | replace: ' ', '-'}}">
+                    <span class="collectionFilter__catCircle"></span>
+                    <p class="collectionFilter__catTitle">{{ tag | capitalize }}</p>
+                </a>
+            {% endif %}
+        {% endunless %}
+    {% endfor %}
+</aside>

@@ -1,0 +1,53 @@
+<section class="shopHero">
+    <div class="shopHero__container container">
+        <div class="shopHero__content">
+            <h1 class="shopHero__heading">{{section.settings.shop_title_one}}<br>{{section.settings.shop_title_two}}<br>{{section.settings.shop_title_three}}</h1>
+            <p class="shopHero__body">
+                {{section.settings.shop_text}}
+            </p>
+            <a data-aos-delay="100" data-aos="fade-up" href="#shopify-section-shopCollectionOne" id="arrow-down">{% include 'miscHeroArrow' %}</a>
+        </div>
+        <div class="shopHero__herosvg">{% include 'shopHero' %}</div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll("a#arrow-down").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const anchorName = link.getAttribute("href");
+            document.querySelector(anchorName).scrollIntoView({behavior: "smooth"});
+        })
+    });
+</script>
+
+{% schema %}
+
+{
+"name": "Shop Page Hero",
+"settings": [
+  {
+    "type": "text",
+    "id": "shop_title_one",
+    "label": "Shop Title Line One",
+    "default": "Real designs"
+  }, {
+    "type": "text",
+    "id": "shop_title_two",
+    "label": "Shop Title Line Two",
+    "default": "By real creators"
+  }, {
+    "type": "text",
+    "id": "shop_title_three",
+    "label": "Shop Title Line Three",
+    "default": "For real people"
+  }, {
+    "type": "text",
+    "id": "shop_text",
+    "label": "Shop Text",
+    "default": "Medico Lifestyle was created in January 2018 by two newlywed medical students with a mission to provide high quality, beautiful and practical lifestyle products."
+  }
+]
+}
+
+{% endschema %}

@@ -1,0 +1,40 @@
+@import "../variables"
+
+.accountPage
+    padding: 86px 0 70px 0
+    @media only screen and (max-width: 800px)
+        padding: 60px 0
+    @media only screen and (max-width: 600px)
+        padding: 30px 0
+    &__infoBlock
+        display: flex
+        align-items: center
+        justify-content: flex-start
+    &__profilePicture
+        min-width: 200px
+        width: 200px
+        margin-right: 45px
+        @media only screen and (max-width: 600px)
+            min-width: 110px
+            width: 110px
+            margin-right: 20px
+        img
+            border-radius: 50%
+            width: 100%
+            object-fit: cover
+    &__info
+        max-width: 660px
+    &__heading
+        color: $mediBlue
+    &__location
+        margin: 20px 0
+        @media only screen and (max-width: 600px)
+            margin: 20px 0 0 0
+    &__description
+        @media only screen and (max-width: 600px)
+            display: none
+        &--mobile
+            display: none
+            @media only screen and (max-width: 600px)
+                margin-top: 20px
+                display: block

@@ -1,0 +1,21 @@
+ <article class="podcastPosts__post" data-aos="fade-up">
+
+    <div class="podcastPosts__image" data-aos-delay="100" data-aos="fade-up">
+        <img src="{{ article.image | img_url: '500x500', crop: 'center' }}" alt="{{ article.image.alt }}"/>
+    </div>
+
+    <div class="podcastPosts__content">
+        <h2 class="podcastPosts__heading" data-aos-delay="200" data-aos="fade-up">{{ article.title }}</h2>
+
+        <p class="podcastPosts__date" data-aos-delay="300" data-aos="fade-up">
+            {{ article.created_at | date: "%B %d, %Y" }}
+        </p>
+
+        <p class="podcastPosts__body" data-aos-delay="400" data-aos="fade-up">
+            {{ article.excerpt }}
+        </p>
+
+        <div class="podcastPosts__player">{{article.content}}</div>
+    </div>
+
+</article>
