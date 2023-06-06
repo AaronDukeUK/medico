@@ -1,9 +1,9 @@
 {
-  "name": "medico-lifestyle",
+  "name": "medico",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:MadeBySphere/medico-lifestyle.git",
-  "author": "Chris Ingram <chris@chrisingram.me>",
+  "repository": "git@github.com:AaronDukeUK/medico",
+  "author": "Aaron Duke <hello@aaronduke.co.uk>",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
